@@ -1,4 +1,0 @@
-package Introduccion
-
-class Funciones {
-}
