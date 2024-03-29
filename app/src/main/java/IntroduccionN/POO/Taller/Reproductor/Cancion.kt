@@ -1,4 +1,4 @@
-package IntroduccionN.POO.Reproductor
+package IntroduccionN.POO.Taller.Reproductor
 
 class Cancion {
     private var nombre: String

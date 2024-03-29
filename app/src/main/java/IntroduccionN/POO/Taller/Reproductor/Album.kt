@@ -1,5 +1,5 @@
-package IntroduccionN.POO.Reproductor
-import IntroduccionN.POO.Reproductor.Cancion
+package IntroduccionN.POO.Taller.Reproductor
+import IntroduccionN.POO.Taller.Reproductor.Cancion
 
 
 class album {
@@ -61,6 +61,6 @@ fun main(){
         var a = Cancion(nombre, artista, year, rep)
         album.add(a)
     }
-    val albumFinal:album = album(album,nombreA,TipoA)
+    val albumFinal: album = album(album,nombreA,TipoA)
     albumFinal.print()
 }
