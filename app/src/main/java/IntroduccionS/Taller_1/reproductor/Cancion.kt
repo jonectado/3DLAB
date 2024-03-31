@@ -1,6 +1,7 @@
-package IntroduccionS.POO.reproductor
+package IntroduccionS.Taller_1.reproductor
 
-class Cancion {
+
+class Cancion{
     private var titulo:String =""
     private var artista:String =""
     private var year:Int = 0
@@ -9,6 +10,12 @@ class Cancion {
     //constructor
     constructor()
 
+    constructor(titulo: String, artista: String, year: Int, reproducciones: Int) : this() {
+        this.titulo = titulo
+        this.artista = artista
+        this.year = year
+        this.reproducciones = reproducciones
+    }
     //Getters
     fun get_titulo():String{
         return this.titulo
@@ -50,13 +57,9 @@ class Cancion {
         println("Año: ")
         year = readln()!!.toInt()
     }
+
+    fun descripcion(){
+        println("$titulo interpretada por $artista, se lanzó en el año $year, cantidad de reproducciones: $reproducciones")
+    }
 }
 
-fun main(){
-    val hd=Cancion()
-    hd.pedirDatos()
-    println(hd.get_titulo())
-    println(hd.get_artista())
-    println(hd.get_year())
-    println(hd.get_reproducciones())
-}
