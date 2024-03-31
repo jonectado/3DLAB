@@ -83,7 +83,7 @@ class Album {
         }
     }
 }
-
+/*
 fun main(){
     var c1: Cancion = Cancion("Red","Taylor Swift",2011,1200)
     var c2: Cancion = Cancion("All too well","TS",2012,999)
@@ -94,4 +94,4 @@ fun main(){
     var red: Album = Album("red",3,"Pop",lista)
     red.tracklist()
     red.analisis_canciones()
-}
+}*/
