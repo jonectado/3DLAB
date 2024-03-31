@@ -6,7 +6,7 @@ import kotlin.random.Random
 class Nequi(
     var numero: String,
     var contrasena: String,
-    var saldo: Int = 4500
+    var saldo: Int = 4500,
     var sesion: Boolean = false
 
 ) {
@@ -16,12 +16,10 @@ class Nequi(
         require(contrasena.length == 4) { "La contraseña debe tener exactamente 4 dígitos" }
         require(numero.length == 10) { "El numero debe tener exactamente 10 dígitos" }
     }
-    constructor()
-
-    fun getNumero: String{
+    fun get_numero(): String{
         return numero
     }
-    fun getSaldo: Int{
+    fun get_saldo(): Int{
         return saldo
     }
 

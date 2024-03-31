@@ -126,8 +126,6 @@ class Menu {
             b.platoinfo()
         }
     }
-
-
 }
 
 fun main(){
