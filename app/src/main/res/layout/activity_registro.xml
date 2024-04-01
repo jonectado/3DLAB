@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.03"
         android:background="#02D2FF"
-        android:hint="a"
+        android:hint="E-mail"
         />
 
     <TextView
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.04"
         app:layout_constraintHorizontal_bias="0"
-        android:hint="a"
+        android:hint="contraseña"
         />
 
 
@@ -104,24 +104,6 @@
         app:layout_constraintVertical_bias="0.03"
         android:textSize="25sp"
         />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:background="#02D2FF"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.04"
-        app:layout_constraintHorizontal_bias="0"
-        android:hint="a"
-        />
-
-
 
 
     <Button
@@ -166,6 +148,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintVertical_bias="0.04"
         android:background="#02D2FF"
+        android:hint="repetir contraseña"
         />
 
 
