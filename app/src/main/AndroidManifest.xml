@@ -13,8 +13,13 @@
         android:theme="@style/Theme._3DLAB"
         tools:targetApi="31">
         <activity
+            android:name="Registro.Registro"
+            android:exported="false" />
+        <activity
             android:name="Login.LogInMain"
-            android:exported="true" />
+            android:exported="true"
+            
+            />
     </application>
 
 </manifest>
