@@ -1,0 +1,202 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Filamentos.Filamentos_main"
+    android:background="@color/background"
+    >
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/backarrow"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/backarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif"
+        android:text="Nuevo Filamento"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintVertical_bias="0"
+        tools:fontFamily="@font/BreeSerif"
+        android:textColor="@color/text_plain"
+        />
+
+    <ImageView
+        android:id="@+id/imageViewF"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.1"
+        app:srcCompat="@drawable/filament" />
+
+    <TextView
+        android:id="@+id/ColorTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewF"
+        app:layout_constraintHorizontal_bias="0.08"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        app:layout_constraintVertical_bias="0.04"/>
+
+    <EditText
+        android:id="@+id/color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        android:hint="¿Que color es?"
+        android:background="@color/text_write"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ColorTag"
+        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintTop_toBottomOf="@+id/ColorTag" />
+
+    <TextView
+        android:id="@+id/MarcaTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        android:text="Marca"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ColorTag"
+        app:layout_constraintTop_toBottomOf="@+id/color"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <EditText
+        android:id="@+id/marca"
+        android:background="@color/text_write"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:padding="10dp"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        android:inputType="text"
+        android:layout_marginHorizontal="30dp"
+        android:hint="Marca del filamento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/color"
+        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintTop_toBottomOf="@+id/MarcaTag" />
+
+    <TextView
+        android:id="@+id/precioTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ColorTag"
+        app:layout_constraintTop_toBottomOf="@+id/marca"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <EditText
+        android:id="@+id/precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_write"
+        android:ems="10"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        android:hint="Cuanto le costó"
+        android:layout_marginHorizontal="30dp"
+        android:inputType="number"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/marca"
+        app:layout_constraintTop_toBottomOf="@+id/precioTag"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <TextView
+        android:id="@+id/RestanteTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restante"
+        android:textSize="20sp"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ColorTag"
+        app:layout_constraintTop_toBottomOf="@+id/precio"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <EditText
+        android:id="@+id/restante"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_write"
+        android:ems="10"
+        android:hint="¿Cuanto queda?"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        android:layout_marginHorizontal="30dp"
+        android:padding="10dp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/precio"
+        app:layout_constraintTop_toBottomOf="@+id/RestanteTag"
+        app:layout_constraintVertical_bias="0.1" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Añadir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restante"
+        android:background="#07F8F7"
+        android:textColor="@color/text_plain"
+        tools:fontFamily="@font/BreeSerif"
+        android:fontFamily="@font/breeserif"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
