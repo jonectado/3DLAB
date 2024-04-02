@@ -33,7 +33,6 @@
         app:layout_constraintStart_toEndOf="@+id/ImagenI"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.054"
-        tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
         android:textSize="20sp"
         tools:text="Negro"
@@ -51,7 +50,6 @@
         app:layout_constraintStart_toStartOf="@+id/ImagenI"
         app:layout_constraintTop_toBottomOf="@+id/ImagenI"
         app:layout_constraintVertical_bias="0.3"
-        tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
         android:textColor="@color/text_plain"
         tools:text="$ 70000.0" />
@@ -69,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ImagenI"
         app:layout_constraintVertical_bias="0.3"
         android:textColor="@color/text_plain"
-        tools:fontFamily="@font/BreeSerif" />
+        />
 
     <TextView
         android:id="@+id/restante"
@@ -79,7 +77,6 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/RestanteTag"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        tools:fontFamily="@font/BreeSerif"
         android:text=""
         tools:text="700.0 gr"
         android:fontFamily="@font/breeserif"
@@ -95,7 +92,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/restante"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
         tools:text="BambuLab"
         android:textColor="@color/text_plain"
@@ -110,7 +106,6 @@
         app:layout_constraintVertical_bias="0.2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ImagenI"
-        tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
         android:textColor="@color/text_plain"
         app:layout_constraintTop_toBottomOf="@+id/nombre" />

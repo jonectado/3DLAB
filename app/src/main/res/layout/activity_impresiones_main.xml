@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Filamentos.Filamentos_main"
+    tools:context="Impresiones.ImpresionesMain"
     android:background="@color/background"
     >
 
@@ -31,7 +31,6 @@
         android:textSize="30sp"
         android:text="Mis impresiones"
         android:fontFamily="@font/breeserif"
-        tools:fontFamily="@font/BreeSerif"
         app:layout_constraintTop_toBottomOf="@+id/backButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/logo"
