@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="182dp"
+        android:layout_height="178dp"
+        android:layout_marginBottom="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/boton_impresiones"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boton_general"
+        android:drawableRight="@drawable/impresion"
+        android:text="Mis Impresiones"
+        android:textColor="@color/letra"
+        android:textSize="23dp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/boton_filamentos"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boton_general"
+        android:text="Mis Filamentos"
+        android:drawableRight="@drawable/filamento"
+        android:textColor="@color/letra"
+        android:textSize="23dp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/boton_notificacion"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boton_general"
+        android:text="Notificaciones"
+        android:drawableRight="@drawable/campana"
+        android:textColor="@color/letra"
+        android:textSize="23dp"
+        android:layout_marginBottom="30dp"/>
+
+</LinearLayout>
