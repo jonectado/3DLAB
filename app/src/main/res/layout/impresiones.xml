@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="130dp">
+
+
+    <ImageView
+        android:id="@+id/ImagenI"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        tools:background="@color/black"
+        android:textColor="@color/text_plain"
+        android:fontFamily="@font/breeserif"/>
+
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toEndOf="@+id/ImagenI"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054"
+        android:fontFamily="@font/breeserif"
+        android:textSize="20sp"
+        tools:text="Negro"
+        android:textColor="@color/text_plain"
+        />
+
+    <TextView
+        android:id="@+id/precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ImagenI"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/ImagenI"
+        app:layout_constraintTop_toBottomOf="@+id/ImagenI"
+        app:layout_constraintVertical_bias="0.3"
+        android:fontFamily="@font/breeserif"
+        android:textColor="@color/text_plain"
+        tools:text="$ 70000.0" />
+
+    <TextView
+        android:id="@+id/RestanteTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif"
+        android:text="Material: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/descripcion"
+        app:layout_constraintTop_toBottomOf="@+id/ImagenI"
+        app:layout_constraintVertical_bias="0.3"
+        android:textColor="@color/text_plain"
+        />
+
+    <TextView
+        android:id="@+id/restante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toEndOf="@+id/RestanteTag"
+        app:layout_constraintTop_toTopOf="@+id/RestanteTag"
+        android:text=""
+        tools:text="700.0 gr"
+        android:fontFamily="@font/breeserif"
+        android:textColor="@color/text_plain"
+        />
+
+    <TextView
+        android:id="@+id/marca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/restante"
+        app:layout_constraintTop_toTopOf="@+id/RestanteTag"
+        android:fontFamily="@font/breeserif"
+        tools:text="BambuLab"
+        android:textColor="@color/text_plain"
+        />
+
+    <TextView
+        android:id="@+id/descripcion"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        tools:text="Aqui va la descripción espero que ahora si funcione"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ImagenI"
+        android:fontFamily="@font/breeserif"
+        android:textColor="@color/text_plain"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+</androidx.constraintlayout.widget.ConstraintLayout>
