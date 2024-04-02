@@ -18,7 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="Notificaciones"
-            android:textColor="@color/letra"
+            android:fontFamily="@font/breeserif"
+            android:textColor="@color/text_plain"
             android:textSize="40dp" />
 
         <ImageView
@@ -38,9 +39,10 @@
         <TextView
             android:layout_width="217dp"
             android:layout_height="wrap_content"
-            android:text="Se acaba el filamento <filamento>"
+            android:text="Se acaba el filamento 'filamento' "
+            android:fontFamily="@font/breeserif"
             android:textAlignment="center"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="27dp" />
 
         <ImageView
@@ -49,8 +51,7 @@
             android:src="@drawable/filamento"
             android:translationX="10dp"
             android:translationY="6dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="40dp" />
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -64,8 +65,9 @@
             android:layout_width="219dp"
             android:layout_height="91dp"
             android:text="Lavar la placa de impresión"
+            android:fontFamily="@font/breeserif"
             android:textAlignment="center"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="28dp"
             android:translationY="10dp" />
 
@@ -75,8 +77,7 @@
             android:src="@drawable/impresion"
             android:translationX="10dp"
             android:translationY="14dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="40dp" />
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -90,8 +91,9 @@
             android:layout_width="219dp"
             android:layout_height="81dp"
             android:text="Deberias lubricar los ejes"
+            android:fontFamily="@font/breeserif"
             android:textAlignment="center"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="28dp"
             android:translationY="12dp" />
 
@@ -101,13 +103,8 @@
             android:src="@drawable/impresion"
             android:translationX="10dp"
             android:translationY="14dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="40dp" />
+            />
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>
 
