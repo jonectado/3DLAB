@@ -169,7 +169,7 @@
         android:layout_height="wrap_content"
         android:background="@color/text_write"
         android:ems="10"
-        android:hint="¿Cuanto queda?"
+        android:hint="Cuanto queda?"
         android:textColor="@color/text_plain"
         tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
