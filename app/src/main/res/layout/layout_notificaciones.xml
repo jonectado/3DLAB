@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="354dp"
@@ -63,9 +64,9 @@
 
         <TextView
             android:layout_width="219dp"
-            android:layout_height="91dp"
-            android:text="Lavar la placa de impresión"
+            android:layout_height="97dp"
             android:fontFamily="@font/breeserif"
+            android:text="Lavar la placa de impresión"
             android:textAlignment="center"
             android:textColor="@color/text_plain"
             android:textSize="28dp"

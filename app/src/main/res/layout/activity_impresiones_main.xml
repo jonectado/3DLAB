@@ -47,17 +47,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="@+id/backButton"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:id="@+id/lista"
+        android:layout_width="410dp"
+        android:layout_height="603dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.05"
-        android:id="@+id/lista">
+        app:layout_constraintVertical_bias="0.2">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp">
+    android:layout_height="200dp"
+    android:background="@drawable/margen_impresion"
+    android:layout_marginBottom="10dp"
+    >
 
 
     <ImageView
@@ -109,4 +112,5 @@
         android:fontFamily="@font/breeserif"
         android:textColor="@color/text_plain"
         app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
