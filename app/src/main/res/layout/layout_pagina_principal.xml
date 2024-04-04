@@ -18,37 +18,86 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/boton_impresiones"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/boton_general"
-        android:drawableRight="@drawable/impresion"
-        android:text="Mis Impresiones"
-        android:textColor="@color/letra"
-        android:textSize="23dp"
-        android:layout_marginBottom="30dp"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp">
 
-    <Button
-        android:id="@+id/boton_filamentos"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/boton_general"
-        android:text="Mis Filamentos"
-        android:drawableRight="@drawable/filamento"
-        android:textColor="@color/letra"
-        android:textSize="23dp"
-        android:layout_marginBottom="30dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:text="Mis Impresiones"
+            android:textAlignment="center"
+            android:textColor="@color/text_plain"
+            android:textSize="30dp" />
 
-    <Button
-        android:id="@+id/boton_notificacion"
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="69dp"
+            android:src="@drawable/impresora"
+            android:translationY="4dp"
+            app:layout_constraintVertical_bias="0.05" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/boton_general"
-        android:text="Notificaciones"
-        android:drawableRight="@drawable/campana"
-        android:textColor="@color/letra"
-        android:textSize="23dp"
-        android:layout_marginBottom="30dp"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:text="Mis Filamentos"
+            android:textAlignment="center"
+            android:textColor="@color/text_plain"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="69dp"
+            android:src="@drawable/filamento"
+            android:translationY="5dp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintVertical_bias="0.05" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boton_general"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="18dp"
+            android:text="Notificaciones"
+            android:textAlignment="center"
+            android:textColor="@color/text_plain"
+            android:textSize="32dp" />
+
+        <ImageView
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/campana"
+            android:translationY="6dp"
+            app:layout_constraintVertical_bias="0.05" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

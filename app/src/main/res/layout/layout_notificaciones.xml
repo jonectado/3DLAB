@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="Notificaciones"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="40dp" />
 
         <ImageView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Se acaba el filamento <filamento>"
             android:textAlignment="center"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="27dp" />
 
         <ImageView
@@ -65,7 +65,7 @@
             android:layout_height="91dp"
             android:text="Lavar la placa de impresión"
             android:textAlignment="center"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="28dp"
             android:translationY="10dp" />
 
@@ -91,7 +91,7 @@
             android:layout_height="81dp"
             android:text="Deberias lubricar los ejes"
             android:textAlignment="center"
-            android:textColor="@color/letra"
+            android:textColor="@color/text_plain"
             android:textSize="28dp"
             android:translationY="12dp" />
 
