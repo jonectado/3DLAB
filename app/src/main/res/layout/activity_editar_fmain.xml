@@ -185,8 +185,11 @@
         app:layout_constraintTop_toBottomOf="@+id/restante"
         android:background="#07F8F7"
         android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"
-        />
+        android:fontFamily="@font/breeserif" />
+        <!--
+        cambiar tamaño y color maybe
+        -->
+
 
 
 

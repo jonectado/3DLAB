@@ -21,11 +21,6 @@
         </activity>
         <activity
             android:name="EditarFilamentos.EditarF_main"
-            android:exported="false">
-
-        </activity>
-        <activity
-            android:name="Impresiones.ImpresionesMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +29,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="Impresiones.ImpresionesMain"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name="Filamentos.Filamentos_main"
             android:exported="false">
+
 
         </activity>
         <activity
