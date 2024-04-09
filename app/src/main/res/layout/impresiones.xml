@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp">
+    android:layout_height="200dp"
+    android:background="@drawable/margen_impresion"
+    >
 
 
     <ImageView
@@ -33,7 +35,6 @@
         app:layout_constraintStart_toEndOf="@+id/ImagenI"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.054"
-        tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
         android:textSize="20sp"
         tools:text="Negro"
@@ -51,7 +52,6 @@
         app:layout_constraintStart_toStartOf="@+id/ImagenI"
         app:layout_constraintTop_toBottomOf="@+id/ImagenI"
         app:layout_constraintVertical_bias="0.3"
-        tools:fontFamily="@font/BreeSerif"
         android:fontFamily="@font/breeserif"
         android:textColor="@color/text_plain"
         tools:text="$ 70000.0" />
@@ -69,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ImagenI"
         app:layout_constraintVertical_bias="0.3"
         android:textColor="@color/text_plain"
-        tools:fontFamily="@font/BreeSerif" />
+        />
 
     <TextView
         android:id="@+id/restante"
@@ -79,7 +79,6 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/RestanteTag"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        tools:fontFamily="@font/BreeSerif"
         android:text=""
         tools:text="700.0 gr"
         android:fontFamily="@font/breeserif"
@@ -90,28 +89,29 @@
         android:id="@+id/marca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif"
         android:text=""
+        android:textColor="@color/text_plain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toEndOf="@+id/restante"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        tools:fontFamily="@font/BreeSerif"
-        android:fontFamily="@font/breeserif"
-        tools:text="BambuLab"
-        android:textColor="@color/text_plain"
-        />
+        tools:text="BambuLab" />
 
     <TextView
         android:id="@+id/descripcion"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        tools:text="Aqui va la descripción espero que ahora si funcione"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ImagenI"
-        tools:fontFamily="@font/BreeSerif"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
         android:fontFamily="@font/breeserif"
         android:textColor="@color/text_plain"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+        app:layout_constraintBottom_toTopOf="@+id/marca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ImagenI"
+        app:layout_constraintTop_toBottomOf="@+id/nombre"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Aqui va la descripción espero que ahora si funcione" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

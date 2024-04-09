@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="200dp"
-    android:layout_height="200dp">
+    android:layout_height="200dp"
+    >
 
     <ImageView
         android:id="@+id/ImagenF"
@@ -28,7 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImagenF"
         app:layout_constraintVertical_bias="0.02"
-        tools:fontFamily="@font/BreeSerif"
         android:textColor="@color/text_plain"
         android:fontFamily="@font/breeserif"/>
 
@@ -40,7 +40,6 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/ColorTag"
         app:layout_constraintTop_toTopOf="@+id/ColorTag"
-        tools:fontFamily="@font/BreeSerif"
         android:text=""
         tools:text="Negro"
         android:textColor="@color/text_plain"
@@ -57,7 +56,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ColorTag"
         app:layout_constraintVertical_bias="0.01"
-        tools:fontFamily="@font/BreeSerif"
         android:textColor="@color/text_plain"
         android:fontFamily="@font/breeserif"/>
 
@@ -69,7 +67,6 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/MarcaTag"
         app:layout_constraintTop_toTopOf="@+id/MarcaTag"
-        tools:fontFamily="@font/BreeSerif"
         android:text=""
         tools:text="BambooLab"
         android:textColor="@color/text_plain"
@@ -85,7 +82,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MarcaTag"
         app:layout_constraintVertical_bias="0.01"
-        tools:fontFamily="@font/BreeSerif"
         android:textColor="@color/text_plain"
         android:fontFamily="@font/breeserif"/>
 
@@ -97,7 +93,6 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/precioTag"
         app:layout_constraintTop_toTopOf="@+id/precioTag"
-        tools:fontFamily="@font/BreeSerif"
         android:text=""
         tools:text="$ 70000.0"
         android:textColor="@color/text_plain"
@@ -113,7 +108,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/precioTag"
         app:layout_constraintVertical_bias="0.01"
-        tools:fontFamily="@font/BreeSerif"
         android:textColor="@color/text_plain"
         android:fontFamily="@font/breeserif"/>
 
@@ -125,7 +119,6 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toEndOf="@+id/RestanteTag"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        tools:fontFamily="@font/BreeSerif"
         android:text=""
         tools:text="700.0 gr"
         android:textColor="@color/text_plain"
