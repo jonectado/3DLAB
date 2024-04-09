@@ -47,12 +47,12 @@
             android:textSize="27dp" />
 
         <ImageView
-            android:layout_width="97dp"
-            android:layout_height="91dp"
+            android:layout_width="94dp"
+            android:layout_height="84dp"
             android:src="@drawable/filamento"
             android:translationX="10dp"
-            android:translationY="6dp"
-             />
+            android:translationY="12dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -73,12 +73,11 @@
             android:translationY="10dp" />
 
         <ImageView
-            android:layout_width="98dp"
-            android:layout_height="83dp"
-            android:src="@drawable/impresion"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:src="@drawable/impresora"
             android:translationX="10dp"
-            android:translationY="14dp"
-            />
+            android:translationY="10dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -99,12 +98,11 @@
             android:translationY="12dp" />
 
         <ImageView
-            android:layout_width="98dp"
-            android:layout_height="83dp"
-            android:src="@drawable/impresion"
+            android:layout_width="wrap_content"
+            android:layout_height="86dp"
+            android:src="@drawable/impresora"
             android:translationX="10dp"
-            android:translationY="14dp"
-            />
+            android:translationY="12dp" />
     </LinearLayout>
 
 </LinearLayout>

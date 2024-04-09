@@ -24,6 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registro"
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +46,15 @@
         app:layout_constraintVertical_bias="0.02"
         app:layout_constraintHorizontal_bias="0.15"
         android:textSize="25sp"
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         />
 
     <EditText
+
         android:id="@+id/editTextTextEmailAddress"
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -57,8 +64,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.03"
-        android:background="#02D2FF"
-        android:hint="E-mail"
+        android:background="@drawable/texto_notificacion"
+        android:hint="     E-mail"
         />
 
     <TextView
@@ -67,6 +74,8 @@
         android:layout_height="wrap_content"
         android:text="Contraseña"
         android:textSize="25sp"
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -78,7 +87,7 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:background="#02D2FF"
+        android:background="@drawable/texto_notificacion"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,11 +96,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.04"
         app:layout_constraintHorizontal_bias="0"
-        android:hint="contraseña"
+        android:hint="     contraseña"
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         />
 
 
     <TextView
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,6 +120,7 @@
 
 
     <Button
+        android:fontFamily="@font/breeserif"
         android:id="@+id/button2"
         android:layout_width="125dp"
         android:layout_height="65dp"
@@ -141,15 +155,15 @@
         android:layout_height="45dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="@color/darker_text"
+        android:fontFamily="@font/breeserif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintVertical_bias="0.04"
-        android:background="#02D2FF"
-        android:hint="repetir contraseña"
+        android:background="@drawable/texto_notificacion"
+        android:hint="     repetir contraseña"
         />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
