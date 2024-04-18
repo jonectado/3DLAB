@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "600815476184",
+    "project_id": "ejemplo-dm",
+    "storage_bucket": "ejemplo-dm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600815476184:android:2d35840fd6745e09d7e6ad",
+        "android_client_info": {
+          "package_name": "com.example.a3dlab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcVKrLHmW-J4X_0eVSVf0CQZSY09zXr5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

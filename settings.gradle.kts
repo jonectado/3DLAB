@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "3DLAB"
+rootProject.name = "PrintLab"
 include(":app")
  
