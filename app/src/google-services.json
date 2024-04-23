@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "659064832511",
+    "project_id": "printlabdesarrollo",
+    "storage_bucket": "printlabdesarrollo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659064832511:android:27921e26c9be62771ca7ca",
+        "android_client_info": {
+          "package_name": "com.example.a3dlab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyVZWiw3iU7U8888804YkqGZ96mBw6AIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
