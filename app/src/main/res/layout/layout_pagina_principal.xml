@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/MisImpresiones"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/boton_general"
@@ -46,6 +47,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/MisFilamentos"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/boton_general"
@@ -73,6 +75,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/Notificaciones"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@drawable/boton_general"
