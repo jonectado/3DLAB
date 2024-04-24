@@ -161,11 +161,7 @@
         android:layout_marginHorizontal="30dp"
         android:background="@color/text_write"
         android:ems="10"
-<<<<<<< Updated upstream
-        android:hint="Cuanto queda?"
-        android:textColor="@color/text_plain"
-=======
->>>>>>> Stashed changes
+
         android:fontFamily="@font/breeserif"
         android:hint="¿Cuanto queda?"
         android:inputType="number"
@@ -175,7 +171,6 @@
         app:layout_constraintStart_toStartOf="@+id/precio"
         app:layout_constraintTop_toBottomOf="@+id/RestanteTag"
         app:layout_constraintVertical_bias="0.1" />
-
 
     <Button
         android:id="@+id/button"

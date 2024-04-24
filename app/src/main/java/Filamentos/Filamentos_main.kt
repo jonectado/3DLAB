@@ -25,11 +25,8 @@ class Filamentos_main : AppCompatActivity() {
     }
 
     fun initRecyclerView() {
-        val recyclerview =findViewById<RecyclerView>(R.id.lista)
-        recyclerview.layoutManager = GridLayoutManager(this,2)
-        recyclerview.adapter = AdaptadorFilamentos(ListaFilamentos.lista){
-            filamento ->
-        }
+        val recyclerview = findViewById<RecyclerView>(R.id.lista)
+        recyclerview.layoutManager = GridLayoutManager(this, 2)
+        recyclerview.adapter = AdaptadorFilamentos(ListaFilamentos.lista)
     }
-
 }
