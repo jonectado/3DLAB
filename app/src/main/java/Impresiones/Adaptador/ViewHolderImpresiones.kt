@@ -4,7 +4,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.a3dlab.R
+import com.example.DashBoard.R
 
 class ViewHolderImpresiones(view: View):RecyclerView.ViewHolder(view) {
     val nombre = view.findViewById<TextView>(R.id.nombre)

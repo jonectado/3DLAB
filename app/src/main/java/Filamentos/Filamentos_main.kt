@@ -2,14 +2,12 @@ package Filamentos
 
 import Filamentos.Adaptador.AdaptadorFilamentos
 import Filamentos.Clases.ListaFilamentos
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
-import com.example.a3dlab.layout_pagina_principal
 
 class Filamentos_main : AppCompatActivity() {
     private lateinit var backButton: ImageButton
@@ -19,8 +17,7 @@ class Filamentos_main : AppCompatActivity() {
         initRecyclerView()
         backButton = findViewById<ImageButton>(R.id.backButton)
         backButton.setOnClickListener{
-            val intent = Intent(this, layout_pagina_principal::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 

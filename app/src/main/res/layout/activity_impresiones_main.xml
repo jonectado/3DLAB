@@ -10,8 +10,10 @@
 
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.08"
         android:background="@drawable/backarrow"
         android:clickable="true"
         android:focusable="true"
@@ -26,9 +28,11 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintWidth_percent="0.54"
+        android:autoSizeTextType="uniform"
         android:text="Mis impresiones"
         android:fontFamily="@font/breeserif"
         app:layout_constraintTop_toBottomOf="@+id/backButton"
