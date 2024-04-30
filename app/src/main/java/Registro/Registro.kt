@@ -2,7 +2,7 @@ package Registro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.DashBoard.R
+import com.example.a3dlab.R
 
 class Registro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

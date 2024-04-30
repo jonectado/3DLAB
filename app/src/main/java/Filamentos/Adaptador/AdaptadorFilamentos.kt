@@ -4,7 +4,7 @@ import Filamentos.Clases.Filamento
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.DashBoard.R
+import com.example.a3dlab.R
 
 class AdaptadorFilamentos(var listaFilamentos:List<Filamento>) : RecyclerView.Adapter<ViewHolderFilamentos>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderFilamentos {

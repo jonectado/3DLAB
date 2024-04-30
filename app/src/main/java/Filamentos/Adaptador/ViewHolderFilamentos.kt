@@ -6,7 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.DashBoard.R
+import com.example.a3dlab.R
 
 class ViewHolderFilamentos(view:View):RecyclerView.ViewHolder(view) {
     val color = view.findViewById<TextView>(R.id.Color)
