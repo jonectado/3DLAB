@@ -1,6 +1,6 @@
 package Impresiones
 
-import EditarImpresiones.EditarImpresionesMain
+import Impresiones.EditarImpresiones.EditarImpresionesMain
 import Impresiones.Adaptador.AdaptadorImpresiones
 import Impresiones.Clases.ListaImpresiones
 import android.content.Intent

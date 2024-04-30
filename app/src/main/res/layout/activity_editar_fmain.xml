@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context="EditarFilamentos.EditarF_main">
+    tools:context="Filamentos.EditarFilamentos.EditarF_main">
 
     <ImageButton
         android:id="@+id/backButton"
@@ -165,7 +165,7 @@
         app:layout_constraintHeight_percent="0.03"
         app:layout_constraintWidth_percent="0.2"
         android:fontFamily="@font/breeserif"
-        android:text="Restante"
+        android:text="Peso"
         android:textColor="@color/text_plain"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +182,7 @@
         android:background="@color/text_write"
         android:ems="10"
         android:fontFamily="@font/breeserif"
-        android:hint="¿Cuanto queda?"
+        android:hint="¿Que peso tiene?"
         android:inputType="number"
         android:padding="10dp"
         android:textColor="@color/text_plain"
