@@ -87,12 +87,13 @@
 
     <TextView
         android:id="@+id/marca"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/breeserif"
         android:text=""
         android:textColor="@color/text_plain"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="15dp"
         app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toEndOf="@+id/restante"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"

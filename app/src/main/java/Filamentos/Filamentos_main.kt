@@ -13,7 +13,7 @@ class Filamentos_main : AppCompatActivity() {
     private lateinit var backButton: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.filamentos_main)
         initRecyclerView()
         backButton = findViewById<ImageButton>(R.id.backButton)
         backButton.setOnClickListener{

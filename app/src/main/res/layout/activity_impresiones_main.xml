@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/anadir"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/buttons"
+        app:backgroundTint="@color/darker_text"
         app:layout_constraintBottom_toBottomOf="@+id/lista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
