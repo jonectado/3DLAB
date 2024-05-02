@@ -21,6 +21,11 @@ class Registro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
         firebaseAuth = FirebaseAuth.getInstance()
+        editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress)
+        editTextTextPassword = findViewById(R.id.editTextTextPassword)
+        editTextTextPassword2 = findViewById(R.id.editTextTextPassword2)
+        button2 = findViewById(R.id.button2)
+        button3 = findViewById(R.id.button3)
         button2.setOnClickListener {
             val email = editTextTextEmailAddress.text.toString()
             val pass = editTextTextPassword.text.toString()
@@ -34,8 +39,7 @@ class Registro : AppCompatActivity() {
                                 "Usuario añadido correctamente",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            val intent = Intent(this, LogInMain::class.java)
-                            startActivity(intent)
+                            finish()
                         }else{
                             Toast.makeText(
                                 this,
@@ -59,6 +63,9 @@ class Registro : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+        button3.setOnClickListener {
+            finish()
         }
     }
 }

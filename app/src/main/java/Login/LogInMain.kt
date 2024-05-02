@@ -21,10 +21,11 @@ class LogInMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in_main)
-
+        editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress)
+        editTextTextPassword = findViewById(R.id.editTextTextPassword)
         firebaseAuth = FirebaseAuth.getInstance()
-
-        button2.setOnClickListener {
+        button3 = findViewById(R.id.button3)
+        button3.setOnClickListener {
             val email = editTextTextEmailAddress.text.toString()
             val pass = editTextTextPassword.text.toString()
 
@@ -32,7 +33,12 @@ class LogInMain : AppCompatActivity() {
                 firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener{
                     if(it.isSuccessful){
                         val intent1 = Intent(this, ImpresionesMain::class.java)
-                        startActivity(intent)
+                        startActivity(intent1)
+                        Toast.makeText(
+                            this,
+                            "Inicio de sesión exitoso",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }else{
                         Toast.makeText(
                             this,
@@ -49,8 +55,8 @@ class LogInMain : AppCompatActivity() {
                 ).show()
             }
         }
-
-        button3.setOnClickListener{
+        button2 = findViewById(R.id.button2)
+        button2.setOnClickListener{
             val intent2 = Intent(this, Registro::class.java)
             startActivity(intent2)
         }
