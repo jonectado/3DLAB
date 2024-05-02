@@ -19,6 +19,23 @@
             android:exported="false" />
         <activity
             android:name="EditarFilamentos.EditarF_main"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name="Impresiones.ImpresionesMain"
+            android:exported="false">
+
+        </activity>
+
+        <activity
+            android:name="Registro.Registro"
+            android:exported="false">
+
+        </activity>
+
+        <activity
+            android:name="Login.LogInMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="Impresiones.ImpresionesMain"
-            android:exported="false"></activity>
+
         <activity
             android:name="Filamentos.Filamentos_main"
             android:exported="false" />

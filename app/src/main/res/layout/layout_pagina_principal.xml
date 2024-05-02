@@ -25,7 +25,7 @@
         android:background="@drawable/boton_general"
         android:drawableRight="@drawable/impresion"
         android:text="Mis Impresiones"
-        android:textColor="@color/letra"
+        android:textColor="@color/text_plain"
         android:textSize="23dp"
         android:layout_marginBottom="30dp"/>
 
@@ -36,7 +36,7 @@
         android:background="@drawable/boton_general"
         android:text="Mis Filamentos"
         android:drawableRight="@drawable/filamento"
-        android:textColor="@color/letra"
+        android:textColor="@color/text_plain"
         android:textSize="23dp"
         android:layout_marginBottom="30dp"/>
 
@@ -47,7 +47,7 @@
         android:background="@drawable/boton_general"
         android:text="Notificaciones"
         android:drawableRight="@drawable/campana"
-        android:textColor="@color/letra"
+        android:textColor="@color/text_plain"
         android:textSize="23dp"
         android:layout_marginBottom="30dp"/>
 
