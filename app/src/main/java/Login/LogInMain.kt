@@ -7,8 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.a3dlab.R
+import com.example.a3dlab.passwordreset
 import com.google.firebase.auth.FirebaseAuth
 
 class LogInMain : AppCompatActivity() {
@@ -17,6 +19,7 @@ class LogInMain : AppCompatActivity() {
     private lateinit var editTextTextPassword: EditText
     private lateinit var button2: Button
     private lateinit var button3: Button
+    private lateinit var restorePassword:TextView
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,8 @@ class LogInMain : AppCompatActivity() {
         editTextTextPassword = findViewById(R.id.editTextTextPassword)
         firebaseAuth = FirebaseAuth.getInstance()
         button3 = findViewById(R.id.button3)
+        restorePassword = findViewById(R.id.restorePassword)
+
         button3.setOnClickListener {
             val email = editTextTextEmailAddress.text.toString()
             val pass = editTextTextPassword.text.toString()
@@ -59,6 +64,10 @@ class LogInMain : AppCompatActivity() {
         button2.setOnClickListener{
             val intent2 = Intent(this, Registro::class.java)
             startActivity(intent2)
+        }
+        restorePassword.setOnClickListener {
+            val intent3 = Intent(this, passwordreset::class.java)
+            startActivity(intent3)
         }
     }
 }
