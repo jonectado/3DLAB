@@ -3,20 +3,28 @@ package Impresiones.EditarImpresiones
 import Impresiones.Adaptador.AdaptadorImpresiones
 import Impresiones.Clases.Impresion
 import android.content.ContentValues.TAG
+import android.content.Intent
+import android.media.Image
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.firestore.firestore
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.storage
 
 class EditarImpresionesMain : AppCompatActivity() {
@@ -25,11 +33,13 @@ class EditarImpresionesMain : AppCompatActivity() {
     private lateinit var sendButton: Button
     private lateinit var chooseFiament: Button
     private lateinit var data:EditText
+    private lateinit var image:ImageView
+    private lateinit var chooseImage: Button
 
     private lateinit var lista_filamentos: Array<String>
     private var seleccion = 0
     private val db = Firebase.firestore
-    private val photodb = Firebase.storage
+    private var photodb = Firebase.storage
 
     private var name:String = ""
     private var description:String = ""
@@ -38,6 +48,7 @@ class EditarImpresionesMain : AppCompatActivity() {
     private var cost:String = ""
     private var photoID:String = ""
     private var id:String = ""
+    private var uri:Uri? =null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_impresiones_main)
@@ -55,6 +66,8 @@ class EditarImpresionesMain : AppCompatActivity() {
                 Log.w(TAG, "Error getting documents.", exception)
             }
 
+        photodb = FirebaseStorage.getInstance()
+
         sendButton = findViewById<Button>(R.id.button)
         sendButton.setOnClickListener{
             //Guarda el nombre
@@ -66,6 +79,16 @@ class EditarImpresionesMain : AppCompatActivity() {
             //Guarda el peso
             data = findViewById<EditText>(R.id.peso)
             weight = data.text.toString()
+            //Sube la imagen a la Base de datos
+            photodb.getReference("Impresiones").child(name)
+                .putFile(uri!!)
+                .addOnSuccessListener { task ->
+                    task.metadata!!.reference!!.downloadUrl
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
+                            photoID = "$it"
+                        }
+                }
             //Crea el documento
             if(name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty()){
                 Toast.makeText(this,"Rellene todos los campos para continuar",Toast.LENGTH_SHORT).show()
@@ -102,6 +125,22 @@ class EditarImpresionesMain : AppCompatActivity() {
                 filament = lista_filamentos[seleccion]
             }
             builderSingle.show()
+        }
+        chooseFiament = findViewById<Button>(R.id.selectFilament)
+
+        image = findViewById<ImageView>(R.id.imageViewI)
+        chooseImage = findViewById<Button>(R.id.chooseImage)
+
+        val galleryImage = registerForActivityResult(
+            ActivityResultContracts.GetContent(),
+            ActivityResultCallback {
+                image.setImageURI(it)
+                uri = it
+            }
+        )
+
+        chooseImage.setOnClickListener{
+            galleryImage.launch("image/*")
         }
 
     }
