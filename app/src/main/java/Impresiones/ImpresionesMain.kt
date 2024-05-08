@@ -19,20 +19,20 @@ import com.google.firebase.firestore.firestore
 
 
 class ImpresionesMain : AppCompatActivity() {
-    private lateinit var backButton: ImageButton
-    private lateinit var addButton: FloatingActionButton
-    val db = Firebase.firestore
+    private var backButton = findViewById<ImageButton>(R.id.backButton)
+    private var addButton = findViewById<FloatingActionButton>(R.id.anadir)
+    private val db = Firebase.firestore
     private var listaImpresiones : ArrayList<Impresion> = ArrayList<Impresion>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_impresiones_main)
         initRecyclerView()
-        backButton = findViewById<ImageButton>(R.id.backButton)
+
         backButton.setOnClickListener{
             finish()
         }
-        addButton = findViewById<FloatingActionButton>(R.id.anadir)
+
         addButton.setOnClickListener{
             val intent = Intent(this, EditarImpresionesMain::class.java)
             startActivity(intent)

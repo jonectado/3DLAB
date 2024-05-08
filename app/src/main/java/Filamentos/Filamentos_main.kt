@@ -21,6 +21,11 @@ class Filamentos_main : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        this.initRecyclerView()
+    }
+
     fun initRecyclerView() {
         val recyclerview = findViewById<RecyclerView>(R.id.lista)
         recyclerview.layoutManager = GridLayoutManager(this, 2)

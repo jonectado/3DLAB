@@ -7,12 +7,12 @@ import com.bumptech.glide.Glide
 import com.example.a3dlab.R
 
 class ViewHolderImpresiones(view: View):RecyclerView.ViewHolder(view) {
-    val nombre = view.findViewById<TextView>(R.id.nombre)
-    val descripcion = view.findViewById<TextView>(R.id.descripcion)
-    val precio = view.findViewById<TextView>(R.id.precio)
-    val restante = view.findViewById<TextView>(R.id.restante)
-    val marca = view.findViewById<TextView>(R.id.marca)
-    val foto = view.findViewById<ImageView>(R.id.ImagenI)
+    private val nombre = view.findViewById<TextView>(R.id.nombre)
+    private val descripcion = view.findViewById<TextView>(R.id.descripcion)
+    private val precio = view.findViewById<TextView>(R.id.precio)
+    private val restante = view.findViewById<TextView>(R.id.restante)
+    private val marca = view.findViewById<TextView>(R.id.marca)
+    private val foto = view.findViewById<ImageView>(R.id.ImagenI)
     fun render(impresion: Impresion){
         nombre.text = impresion.titulo
         descripcion.text = impresion.descripcion
