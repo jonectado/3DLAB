@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.a3dlab.R
-import com.example.a3dlab.passwordreset
 import com.google.firebase.auth.FirebaseAuth
 
 class LogInMain : AppCompatActivity() {
