@@ -8,8 +8,35 @@
     android:background="@color/background"
     >
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="buscar..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0">
+
+    </SearchView>
+
     <ImageButton
-        android:id="@+id/backButton"
+        android:id="@+id/button4"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@drawable/baseline_sort_24"
+        app:layout_constraintBottom_toTopOf="@+id/lista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="1">
+
+    </ImageButton>
+    <ImageButton
+        android:id="@+id/backButtonI"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent="0.04"
@@ -35,7 +62,7 @@
         android:autoSizeTextType="uniform"
         android:text="Mis impresiones"
         android:fontFamily="@font/breeserif"
-        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_constraintTop_toBottomOf="@+id/backButtonI"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/logo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,18 +77,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/title"
-        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="@+id/backButtonI"
         app:layout_constraintVertical_bias="0.06" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lista"
-        android:layout_width="410dp"
-        android:layout_height="603dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.2"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -76,7 +104,8 @@
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9">
+        app:layout_constraintVertical_bias="0.9"
+        android:contentDescription="Añadir">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

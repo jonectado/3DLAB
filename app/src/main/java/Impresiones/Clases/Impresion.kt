@@ -8,4 +8,6 @@ data class Impresion(
     val valor: String,
     val foto: String,
     val id: String,
+    val date: String
+
 )

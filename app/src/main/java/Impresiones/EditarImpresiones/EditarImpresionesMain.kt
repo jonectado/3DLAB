@@ -17,26 +17,27 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.util.Calendar
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.storage
+import kotlin.math.max
 
 class EditarImpresionesMain : AppCompatActivity() {
 
-    private var backButton: ImageButton = findViewById<ImageButton>(R.id.backButton)
-    private var sendButton: Button = findViewById<Button>(R.id.button)
-    private var chooseFiament: Button = findViewById<Button>(R.id.selectFilament)
+    private lateinit var backButton: ImageButton
+    private lateinit var sendButton: Button
+    private lateinit var chooseFiament: Button
     private lateinit var data:EditText
-    private var  image: ImageView = findViewById<ImageView>(R.id.imageViewI)
-    private var chooseImage: Button = findViewById<Button>(R.id.chooseImage)
-
+    private lateinit var  image: ImageView
+    private lateinit var chooseImage: Button
+    private  lateinit var id_impresiones: Array<Int>
+    private lateinit var lista_precios:Array<Int>
     private lateinit var lista_filamentos: Array<String>
     private var seleccion: Int = 0
     private val db: FirebaseFirestore = Firebase.firestore
@@ -63,8 +64,16 @@ class EditarImpresionesMain : AppCompatActivity() {
         setContentView(R.layout.activity_editar_impresiones_main)
 
         initFilaments()
+        initId()
+
+        backButton= findViewById<ImageButton>(R.id.backButton)
+        sendButton= findViewById<Button>(R.id.button)
+        chooseFiament= findViewById<Button>(R.id.selectFilament)
+        image= findViewById<ImageView>(R.id.imageViewI)
+        chooseImage= findViewById<Button>(R.id.chooseImage)
 
         sendButton.setOnClickListener{
+            Toast.makeText(this, "Cargando...", Toast.LENGTH_SHORT).show()
             sendItem()
         }
 
@@ -79,6 +88,27 @@ class EditarImpresionesMain : AppCompatActivity() {
         chooseImage.setOnClickListener{
             galleryImage.launch("image/*")
         }
+
+    }
+
+    private fun initId() {
+        id_impresiones = arrayOf()
+        db.collection("Impresiones")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    id_impresiones = id_impresiones.plus(document.id.toInt())
+                }
+                if(id_impresiones.isEmpty()){
+                    id = "1"
+                }else{
+                    println("Okey")
+                    id = (id_impresiones.max()+1).toString()
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
 
     }
 
@@ -104,9 +134,10 @@ class EditarImpresionesMain : AppCompatActivity() {
         //Guarda el peso
         data = findViewById<EditText>(R.id.peso)
         weight = data.text.toString()
-        //Sube la imagen a la Base de datos
+        //Verifica el precio
+        cost = (weight.toInt()*(lista_precios[seleccion]/1000)).toString()
         //Crea el documento
-        if(name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty()){
+        if(name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty()|| uri==null){
             Toast.makeText(this,"Rellene todos los campos para continuar",Toast.LENGTH_SHORT).show()
         }else {
             photodb.getReference("Impresiones").child(name)
@@ -116,36 +147,42 @@ class EditarImpresionesMain : AppCompatActivity() {
                         .addOnSuccessListener {
                             Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
                             photoID = "$it"
-                            val print =
-                                Impresion(name, description, filament, weight, cost, photoID, id)
-                            // Nuevo documento con ID generada
-                            db.collection("Impresiones") //A que coleccion va a ir
-                                .add(print) //envia el objeto que creamos arriba
-                                .addOnSuccessListener { documentReference -> //Si es exitoso, muestra en la pestaña Logcat
-                                    Log.d(
-                                        TAG,
-                                        "DocumentSnapshot added with ID: ${documentReference.id}"
-                                    )
-                                }
-                                .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
-                                    Log.w(TAG, "Error adding document", e)
+                            val print = Impresion(name, description, filament, weight, cost, photoID, id, SimpleDateFormat.getDateInstance().format(
+                                    Calendar.getInstance().time) )
+                                    db.collection("Impresiones") //A que coleccion va a ir
+                                        .document(id)
+                                        .set(print)//envia el objeto que creamos arriba
+                                        .addOnSuccessListener { documentReference -> //Si es exitoso, muestra en la pestaña Logcat
+                                            Log.d(
+                                                TAG,
+                                                "DocumentSnapshot added with ID: ${id}"
+                                            )
+                                        }
+                                        .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
+                                            Log.w(
+                                                TAG,
+                                                "Error adding document",
+                                                e
+                                            )
+                                        }
                                 }
                             //Solo para verlo en la app que si sirve
                             Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
                             finish()
-                        }
                 }
         }
     }
 
     private fun initFilaments() {
+        lista_filamentos = arrayOf()
+        lista_precios = arrayOf()
         db.collection("Filamentos")
             .get()
             .addOnSuccessListener { result ->
-                lista_filamentos = arrayOf()
                 for (document in result) {
-                    var archivo: String = document.data["marca"].toString()+" "+document.data["color"].toString()
+                    var archivo: String = document.id +". "+ document.data["marca"].toString()+" "+document.data["color"].toString()
                     lista_filamentos= lista_filamentos.plus(archivo)
+                    lista_precios = lista_precios.plus(document.data["costo"].toString().toInt())
                 }
             }
             .addOnFailureListener { exception ->
