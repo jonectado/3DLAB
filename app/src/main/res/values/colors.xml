@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#FCFDFE</color>
-    <color name="buttons">#07f8f7</color>
+    <color name="buttons">#4F46E4</color>
     <color name="text_write">#02d2FF</color>
     <color name="text_plain">#1C4477</color>
     <color name="darker_text">#0A264C</color>
     <color name="black">#000000</color>
+    <color name="text_bg">#66DADFED</color>
 </resources>

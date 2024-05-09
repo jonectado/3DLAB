@@ -53,6 +53,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.04"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
@@ -98,7 +99,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/anadir"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/darker_text"
+        app:backgroundTint="@color/buttons"
         app:layout_constraintBottom_toBottomOf="@+id/lista"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -108,6 +109,20 @@
         android:contentDescription="Añadir">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reload"
+        android:src="@drawable/baseline_cached_24"
+        app:backgroundTint="@color/buttons"
+        app:layout_constraintBottom_toBottomOf="@+id/lista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+        android:contentDescription="Añadir">
 
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

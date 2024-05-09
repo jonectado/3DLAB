@@ -1,10 +1,8 @@
 package Impresiones.EditarImpresiones
 
-import Impresiones.Adaptador.AdaptadorImpresiones
 import Impresiones.Clases.Impresion
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
-import android.content.Intent
-import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,18 +13,16 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.example.a3dlab.R
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.Calendar
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.storage
-import kotlin.math.max
 
 class EditarImpresionesMain : AppCompatActivity() {
 
@@ -42,7 +38,6 @@ class EditarImpresionesMain : AppCompatActivity() {
     private var seleccion: Int = 0
     private val db: FirebaseFirestore = Firebase.firestore
     private var photodb: FirebaseStorage = FirebaseStorage.getInstance()
-
     private var name:String = ""
     private var description:String = ""
     private var filament:String = ""
@@ -51,7 +46,7 @@ class EditarImpresionesMain : AppCompatActivity() {
     private var photoID:String = ""
     private var id:String = ""
     private var uri:Uri? =null
-    private val galleryImage =
+    private val galleryImage: ActivityResultLauncher<String> =
         registerForActivityResult(
             ActivityResultContracts.GetContent(),
             ActivityResultCallback {
@@ -124,6 +119,7 @@ class EditarImpresionesMain : AppCompatActivity() {
         builderSingle.show()
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun sendItem() {
         //Guarda el nombre
         data = findViewById<EditText>(R.id.nombre)

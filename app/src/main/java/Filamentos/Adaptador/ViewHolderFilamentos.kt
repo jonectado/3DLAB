@@ -17,7 +17,7 @@ class ViewHolderFilamentos(view:View):RecyclerView.ViewHolder(view) {
     fun render(filamento: Filamento){
         color.text = filamento.color
         marca.text = filamento.marca
-        precio.text = "$ ${filamento.precioxkg}"
+        precio.text = "$ ${filamento.costo}"
         restante.text = "${filamento.restante} kg"
         Glide.with(color.context).load(filamento.foto).into(foto)
     }

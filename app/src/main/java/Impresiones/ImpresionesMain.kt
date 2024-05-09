@@ -24,21 +24,23 @@ import com.google.firebase.firestore.firestore
 class ImpresionesMain : AppCompatActivity() {
     private lateinit var backButton :ImageButton
     private lateinit var addButton: FloatingActionButton
+    private lateinit var recharge: FloatingActionButton
     private val db = Firebase.firestore
     private var listaImpresiones : ArrayList<Impresion> = ArrayList<Impresion>()
     private lateinit var searchBar: SearchView
     private lateinit var recyclerview:RecyclerView
     private lateinit var adapter: AdaptadorImpresiones
-    private lateinit var chooseMode: androidx.appcompat.widget.AppCompatImageButton
+    private lateinit var chooseMode: ImageButton
     private var seleccion: Int = 0
     private var mode: String = ""
-    private var lista_: Array<String> =arrayOf("Nombre", "Fecha (mm dd, yyyy)", "Peso", "Precio", "Fiamento Usado")
+    private var lista_: Array<String> =arrayOf("Nombre", "Fecha (mm dd, yyyy)", "Peso", "Precio", "Filamento Usado")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_impresiones_main)
         initRecyclerView(listaImpresiones)
         backButton = findViewById(R.id.backButtonI)
         addButton = findViewById(R.id.anadir)
+        recharge = findViewById(R.id.reload)
         recyclerview = findViewById(R.id.lista)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = AdaptadorImpresiones(listaImpresiones)
@@ -52,6 +54,11 @@ class ImpresionesMain : AppCompatActivity() {
             startActivity(intent)
             initRecyclerView(listaImpresiones)
         }
+
+        recharge.setOnClickListener{
+            initRecyclerView(listaImpresiones)
+        }
+
         searchBar = findViewById(R.id.searchView)
         searchBar.setOnQueryTextListener(object:SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String): Boolean {
@@ -80,6 +87,7 @@ class ImpresionesMain : AppCompatActivity() {
         }
     }
     override fun onResume() {
+        listaImpresiones.clear()
         super.onResume()
         println("si")
         this.initRecyclerView(listaImpresiones)
@@ -121,7 +129,7 @@ class ImpresionesMain : AppCompatActivity() {
                         }
                     }
                 }
-                "Fiamento Usado"->{
+                "Filamento Usado"->{
                     for (impresion in listaImpresiones){
                         if(impresion.filamentoUsado.lowercase().contains(text.lowercase())) {
                             searchlist.add(impresion)
