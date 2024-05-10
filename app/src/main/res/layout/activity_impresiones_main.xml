@@ -37,8 +37,8 @@
     </ImageButton>
     <ImageButton
         android:id="@+id/backButtonI"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintHeight_percent="0.04"
         app:layout_constraintWidth_percent="0.08"
         android:background="@drawable/backarrow"
@@ -109,19 +109,23 @@
         android:contentDescription="Añadir">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/reload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/reload"
+        android:contentDescription="Añadir"
         android:src="@drawable/baseline_cached_24"
+        android:scaleType="fitXY"
+
         app:backgroundTint="@color/buttons"
         app:layout_constraintBottom_toBottomOf="@+id/lista"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.97"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        android:contentDescription="Añadir">
+        app:layout_constraintVertical_bias="0.01">
+
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
