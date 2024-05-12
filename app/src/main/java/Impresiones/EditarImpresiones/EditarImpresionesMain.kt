@@ -94,11 +94,11 @@ class EditarImpresionesMain : AppCompatActivity() {
                 for (document in result) {
                     id_impresiones = id_impresiones.plus(document.id.toInt())
                 }
-                if(id_impresiones.isEmpty()){
-                    id = "1"
+                id = if(id_impresiones.isEmpty()){
+                    "1"
                 }else{
                     println("Okey")
-                    id = (id_impresiones.max()+1).toString()
+                    (id_impresiones.max()+1).toString()
                 }
             }
             .addOnFailureListener { exception ->
