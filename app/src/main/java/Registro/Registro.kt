@@ -24,6 +24,7 @@ class Registro : AppCompatActivity() {
         editTextTextPassword2 = findViewById(R.id.editTextTextPassword2)
         button2 = findViewById(R.id.button2)
         button3 = findViewById(R.id.button3)
+
         button2.setOnClickListener {
             registrar()
         }
