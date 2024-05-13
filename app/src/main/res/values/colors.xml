@@ -6,6 +6,11 @@
     <color name="text_plain">#1C4477</color>
     <color name="darker_text">#0A264C</color>
     <color name="black">#000000</color>
+    <color name="fondo_carta">#75FFFFFF</color>
+    <color name="fondo_carta_no_focus">#00FFFFFF</color>
+    <color name="color1">#70D2FF</color>
+    <color name="color2">#F8B577</color>
+    <color name="color3">#A893DC</color>
     <color name="text_bg">#66DADFED</color>
     <color name="fallida">#C61818</color>
     <color name="completada">#36B81D</color>
