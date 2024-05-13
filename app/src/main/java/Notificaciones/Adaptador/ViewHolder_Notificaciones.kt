@@ -21,7 +21,7 @@ class ViewHolder_Notificaciones(view: View) : RecyclerView.ViewHolder(view) {
         when (notificacionModel.notificacion_text) {
 
             "cama" -> {
-                notificacion_mostrada.text = "Deberias lavar la cama de impresión"
+                notificacion_mostrada.text = "Deberias lavar la cama de \n impresión"
                 img_mostrada.setImageResource(R.drawable.impresion)
             }
 
@@ -33,9 +33,14 @@ class ViewHolder_Notificaciones(view: View) : RecyclerView.ViewHolder(view) {
             "filamento" -> {
 
                 Firebase.firestore.collection("Filamentos")
+<<<<<<< Liz
+                    .document(notificacionModel.filamento).get().addOnSuccessListener {
+                        fil -> notificacion_mostrada.text = "Se acaba el filamento \n ${fil.data!!["color"]} ${fil.data!!["marca"]}"
+=======
                     .document(notificacionModel.filamento).get().addOnSuccessListener { fil ->
                         notificacion_mostrada.text =
                             "Se acaba el filamento ${fil.data!!["color"]} ${fil.data!!["marca"]}"
+>>>>>>> main
                     }
                 img_mostrada.setImageResource(R.drawable.filamento)
             }
