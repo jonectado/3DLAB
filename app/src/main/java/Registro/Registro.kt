@@ -32,7 +32,7 @@ class Registro : AppCompatActivity() {
         }
     }
 
-    private fun registrar() {
+    fun registrar() {
         val email = editTextTextEmailAddress.text.toString()
         val pass = editTextTextPassword.text.toString()
         val confirmPass = editTextTextPassword2.text.toString()

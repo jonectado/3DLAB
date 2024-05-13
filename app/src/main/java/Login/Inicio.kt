@@ -19,7 +19,7 @@ class Inicio : AppCompatActivity() {
         }
     }
 
-    private fun ingresar() {
+    fun ingresar() {
         val intent = Intent(this, LogInMain::class.java)
         startActivity(intent)
         finish()

@@ -43,7 +43,7 @@ class LogInMain : AppCompatActivity() {
         }
     }
 
-    private fun iniciarSesion() {
+    fun iniciarSesion() {
         val email = editTextTextEmailAddress.text.toString()
         val pass = editTextTextPassword.text.toString()
 

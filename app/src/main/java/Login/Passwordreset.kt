@@ -24,7 +24,7 @@ class passwordreset : AppCompatActivity() {
         }
     }
 
-    private fun restaurar() {
+    fun restaurar() {
         val email = editTextTextEmailAddress.text.toString()
         if (email.isNotEmpty()){
             FirebaseAuth.getInstance().sendPasswordResetEmail(email)
