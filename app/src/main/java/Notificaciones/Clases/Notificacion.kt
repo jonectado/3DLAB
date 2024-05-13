@@ -1,9 +1,9 @@
 package Notificaciones.Clases
 
-import android.widget.ImageView
+import android.widget.LinearLayout
 
-data class Notificacion (
+data class Notificacion(
     val notificacion_text: String,
-    val notificacion_img: String,
+    val filamento: String
 
-)
+    )

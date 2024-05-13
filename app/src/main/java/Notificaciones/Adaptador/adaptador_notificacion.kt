@@ -22,4 +22,6 @@ class adaptador_notificacion (private val noti_list:List<Notificacion>) : Recycl
         return noti_list.size
     }
 
+
+
 }
