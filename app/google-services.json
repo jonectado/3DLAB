@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "809158302765",
+    "firebase_url": "https://printlabfinal-default-rtdb.firebaseio.com",
     "project_id": "printlabfinal",
     "storage_bucket": "printlabfinal.appspot.com"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.example.a3dlab"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "809158302765-b1vgej9707bkbupe1ieu73a9rnigvv7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCAJelo2gqHO284l7PkGGKlTeW8r63HiJA"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809158302765-b1vgej9707bkbupe1ieu73a9rnigvv7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

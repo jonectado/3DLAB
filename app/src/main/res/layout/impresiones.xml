@@ -3,8 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp">
+    android:layout_height="270dp"
+    android:background="@drawable/margen_impresion"
+    >
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </View>
 
     <ImageView
         android:id="@+id/ImagenI"
@@ -85,28 +94,60 @@
 
     <TextView
         android:id="@+id/marca"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif"
         android:text=""
+        android:textColor="@color/text_plain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toEndOf="@+id/restante"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        android:fontFamily="@font/breeserif"
-        tools:text="BambuLab"
-        android:textColor="@color/text_plain"
-        />
+        tools:text="BambuLab" />
 
     <TextView
         android:id="@+id/descripcion"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        tools:text="Aqui va la descripción espero que ahora si funcione"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ImagenI"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
         android:fontFamily="@font/breeserif"
         android:textColor="@color/text_plain"
-        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+        app:layout_constraintBottom_toTopOf="@+id/marca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ImagenI"
+        app:layout_constraintTop_toBottomOf="@+id/nombre"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Aqui va la descripción espero que ahora si funcione" />
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_general"
+        android:text="Editar"
+        android:textColor="@color/background"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/marca">
+
+    </Button>
+
+    <Button
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_general"
+        android:text="Completada"
+        android:textColor="@color/background"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit"
+        app:layout_constraintTop_toBottomOf="@+id/marca">
+
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
