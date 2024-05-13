@@ -135,7 +135,7 @@ class AnadirImpresionesMain : AppCompatActivity() {
         builderSingle.setSingleChoiceItems(arrayOf("Completada","En proceso", "Fallida"), seleccion2) { dialog, whitch ->
             seleccion2 = whitch
             chooseStatus.text = arrayOf("Completada","En proceso", "Fallida")[seleccion2]
-            status = arrayOf("Completada","En proceso", "Fallida")[seleccion]
+            status = arrayOf("Completada","En proceso", "Fallida")[seleccion2]
             when(seleccion2){
                 0->{
                     chooseStatus.background = resources.getDrawable(R.drawable.boton_completada)

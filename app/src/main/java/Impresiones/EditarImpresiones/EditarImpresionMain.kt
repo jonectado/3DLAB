@@ -39,7 +39,6 @@ class EditarImpresionMain : AppCompatActivity() {
     private lateinit var data: EditText
     private lateinit var image: ImageView
     private lateinit var chooseImage: Button
-    private lateinit var id_impresiones: Array<Int>
     private lateinit var lista_precios: Array<Int>
     private lateinit var lista_filamentos: Array<String>
     private var seleccion: Int = 0
@@ -82,7 +81,7 @@ class EditarImpresionMain : AppCompatActivity() {
         chooseImage = findViewById<Button>(R.id.chooseImage)
         id = idDoc!!
 
-        Firebase.firestore.collection("Impresiones").document(idDoc!!).get().addOnSuccessListener {
+        Firebase.firestore.collection("Impresiones").document(idDoc).get().addOnSuccessListener {
             name = it.data!!["titulo"].toString()
             findViewById<EditText>(R.id.nombre).setText(name)
             description = it.data!!["descripcion"].toString()
@@ -157,7 +156,7 @@ class EditarImpresionMain : AppCompatActivity() {
         ) { dialog, whitch ->
             seleccion2 = whitch
             chooseStatus.text = arrayOf("Completada", "En proceso", "Fallida")[seleccion2]
-            status = arrayOf("Completada", "En proceso", "Fallida")[seleccion]
+            status = arrayOf("Completada", "En proceso", "Fallida")[seleccion2]
             when (seleccion2) {
                 0 -> {
                     chooseStatus.background = resources.getDrawable(R.drawable.boton_completada)

@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
+    android:layout_height="270dp"
     android:background="@drawable/margen_impresion"
     >
 
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </View>
 
     <ImageView
         android:id="@+id/ImagenI"
@@ -122,11 +129,11 @@
         android:background="@drawable/boton_general"
         android:text="Editar"
         android:textColor="@color/background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marca"
-        app:layout_constraintHorizontal_bias="0.3">
+        app:layout_constraintTop_toBottomOf="@+id/marca">
 
     </Button>
 
@@ -134,13 +141,13 @@
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit"
-        app:layout_constraintTop_toBottomOf="@+id/marca"
         android:background="@drawable/boton_general"
         android:text="Completada"
-        android:textColor="@color/background">
+        android:textColor="@color/background"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit"
+        app:layout_constraintTop_toBottomOf="@+id/marca">
 
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
