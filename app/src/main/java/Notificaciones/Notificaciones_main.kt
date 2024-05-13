@@ -30,8 +30,8 @@ class Notificaciones_main : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    
-    fun initRecyclerView(){
+
+    private fun initRecyclerView() {
         val recyclerView = findViewById<RecyclerView>(R.id.lista)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adaptador_notificacion(listanotificaciones.noti_list)

@@ -1,12 +1,11 @@
 package Dashboard
 
-import Filamentos.Filamentos_main
+import Filamentos.FilamentosMain
 import Impresiones.ImpresionesMain
 import Notificaciones.Notificaciones_main
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.cardview.widget.CardView
 import com.example.a3dlab.R
 
@@ -35,7 +34,7 @@ class dashboard_main : AppCompatActivity() {
 
         MisFilamentos = findViewById<CardView>(R.id.MisFilamentos)
         MisFilamentos.setOnClickListener {
-            val intent = Intent(this, Filamentos_main::class.java)
+            val intent = Intent(this, FilamentosMain::class.java)
             startActivity(intent)
         }
         Notificaciones = findViewById<CardView>(R.id.Notificaciones)

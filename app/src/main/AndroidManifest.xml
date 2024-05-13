@@ -19,30 +19,39 @@
             android:exported="false" />
         <activity
             android:name="DashBoard.layout_pagina_principal"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name="Impresiones.AnadirImpresiones.AnadirImpresionesMain"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
 
             android:name="Filamentos.EditarFilamentos.AñadirFilamentosMain"
-            android:exported="false"></activity>
+            android:exported="false">
+
+        </activity>
         <activity
             android:name="Impresiones.ImpresionesMain"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
+
         </activity>
         <activity
             android:name="Filamentos.FilamentosMain"
             android:exported="false" />
         <activity
             android:name="Notificaciones.Notificaciones_main"
-            android:exported="false" />
-        </activity>
-        <activity
-            android:name="Dashboard.dashboard_main"
             android:exported="false">
-        </activity>
-    </application>
-</manifest>
+    </activity>
+    <activity
+        android:name="Dashboard.dashboard_main"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+</application></manifest>
