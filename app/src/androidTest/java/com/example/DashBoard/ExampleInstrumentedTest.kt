@@ -1,4 +1,4 @@
-package com.example.a3dlab
+package com.example.DashBoard
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

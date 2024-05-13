@@ -1,12 +1,13 @@
-package EditarImpresiones
+package DashBoard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.a3dlab.R
 
-class EditarImpresionesMain : AppCompatActivity() {
+class layout_pagina_principal : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_editar_impresiones_main)
+        setContentView(R.layout.layout_pagina_principal)
     }
 }
