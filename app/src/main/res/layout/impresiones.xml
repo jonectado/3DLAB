@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="240dp"
     android:background="@drawable/margen_impresion"
     >
 
@@ -115,4 +115,32 @@
         app:layout_constraintVertical_bias="0.0"
         tools:text="Aqui va la descripción espero que ahora si funcione" />
 
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_general"
+        android:text="Editar"
+        android:textColor="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/marca"
+        app:layout_constraintHorizontal_bias="0.3">
+
+    </Button>
+
+    <Button
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edit"
+        app:layout_constraintTop_toBottomOf="@+id/marca"
+        android:background="@drawable/boton_general"
+        android:text="Completada"
+        android:textColor="@color/background">
+
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

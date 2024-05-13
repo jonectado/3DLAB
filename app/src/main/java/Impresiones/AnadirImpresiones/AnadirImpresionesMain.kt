@@ -1,4 +1,4 @@
-package Impresiones.EditarImpresiones
+package Impresiones.AnadirImpresiones
 
 import Impresiones.Clases.Impresion
 import android.annotation.SuppressLint
@@ -24,11 +24,12 @@ import java.util.Calendar
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 
-class EditarImpresionesMain : AppCompatActivity() {
+class AnadirImpresionesMain : AppCompatActivity() {
 
     private lateinit var backButton: ImageButton
     private lateinit var sendButton: Button
     private lateinit var chooseFiament: Button
+    private lateinit var chooseStatus: Button
     private lateinit var data:EditText
     private lateinit var  image: ImageView
     private lateinit var chooseImage: Button
@@ -36,11 +37,13 @@ class EditarImpresionesMain : AppCompatActivity() {
     private lateinit var lista_precios:Array<Int>
     private lateinit var lista_filamentos: Array<String>
     private var seleccion: Int = 0
+    private var seleccion2: Int = 0
     private val db: FirebaseFirestore = Firebase.firestore
     private var photodb: FirebaseStorage = FirebaseStorage.getInstance()
     private var name:String = ""
     private var description:String = ""
     private var filament:String = ""
+    private var status:String = ""
     private var weight:String = ""
     private var cost:String = ""
     private var photoID:String = ""
@@ -56,7 +59,7 @@ class EditarImpresionesMain : AppCompatActivity() {
         )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_editar_impresiones_main)
+        setContentView(R.layout.anadir_impresiones_main)
 
         initFilaments()
         initId()
@@ -64,6 +67,7 @@ class EditarImpresionesMain : AppCompatActivity() {
         backButton= findViewById<ImageButton>(R.id.backButton)
         sendButton= findViewById<Button>(R.id.button)
         chooseFiament= findViewById<Button>(R.id.selectFilament)
+        chooseStatus= findViewById<Button>(R.id.button6)
         image= findViewById<ImageView>(R.id.imageViewI)
         chooseImage= findViewById<Button>(R.id.chooseImage)
 
@@ -82,6 +86,10 @@ class EditarImpresionesMain : AppCompatActivity() {
 
         chooseImage.setOnClickListener{
             galleryImage.launch("image/*")
+        }
+
+        chooseStatus.setOnClickListener{
+            showStatus()
         }
 
     }
@@ -119,6 +127,30 @@ class EditarImpresionesMain : AppCompatActivity() {
         builderSingle.show()
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun showStatus() {
+        val builderSingle = AlertDialog.Builder(this)
+        builderSingle.setTitle("Eliga el estado de su impresion")
+        builderSingle.setPositiveButton(getString(android.R.string.ok)){ dialog, _ -> dialog.dismiss()}
+        builderSingle.setSingleChoiceItems(arrayOf("Completada","En proceso", "Fallida"), seleccion2) { dialog, whitch ->
+            seleccion2 = whitch
+            chooseStatus.text = arrayOf("Completada","En proceso", "Fallida")[seleccion2]
+            status = arrayOf("Completada","En proceso", "Fallida")[seleccion]
+            when(seleccion2){
+                0->{
+                    chooseStatus.background = resources.getDrawable(R.drawable.boton_completada)
+                }
+                1->{
+                    chooseStatus.background = resources.getDrawable(R.drawable.boton_en_proceso)
+                }
+                2->{
+                    chooseStatus.background = resources.getDrawable(R.drawable.boton_fallida)
+                }
+            }
+        }
+        builderSingle.show()
+    }
+
     @SuppressLint("SuspiciousIndentation")
     private fun sendItem() {
         //Guarda el nombre
@@ -131,9 +163,11 @@ class EditarImpresionesMain : AppCompatActivity() {
         data = findViewById<EditText>(R.id.peso)
         weight = data.text.toString()
         //Verifica el precio
-        cost = (weight.toInt()*(lista_precios[seleccion]/1000)).toString()
+        if(weight.isNotEmpty()){
+            cost = (weight.toInt()*(lista_precios[seleccion]/1000)).toString()
+        }
         //Crea el documento
-        if(name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty()|| uri==null){
+        if(name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty()|| uri==null|| status.isEmpty()){
             Toast.makeText(this,"Rellene todos los campos para continuar",Toast.LENGTH_SHORT).show()
         }else {
             photodb.getReference("Impresiones").child(name)
@@ -144,7 +178,7 @@ class EditarImpresionesMain : AppCompatActivity() {
                             Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
                             photoID = "$it"
                             val print = Impresion(name, description, filament, weight, cost, photoID, id, SimpleDateFormat.getDateInstance().format(
-                                    Calendar.getInstance().time) )
+                                    Calendar.getInstance().time),status)
                                     db.collection("Impresiones") //A que coleccion va a ir
                                         .document(id)
                                         .set(print)//envia el objeto que creamos arriba

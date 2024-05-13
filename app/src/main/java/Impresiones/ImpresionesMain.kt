@@ -2,7 +2,7 @@ package Impresiones
 
 import Impresiones.Adaptador.AdaptadorImpresiones
 import Impresiones.Clases.Impresion
-import Impresiones.EditarImpresiones.EditarImpresionesMain
+import Impresiones.AnadirImpresiones.AnadirImpresionesMain
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.a3dlab.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.Firebase
@@ -24,10 +25,10 @@ import com.google.firebase.firestore.firestore
 class ImpresionesMain : AppCompatActivity() {
     private lateinit var backButton :ImageButton
     private lateinit var addButton: FloatingActionButton
-    private lateinit var recharge: FloatingActionButton
     private val db = Firebase.firestore
     private var listaImpresiones : ArrayList<Impresion> = ArrayList<Impresion>()
     private lateinit var searchBar: SearchView
+    private lateinit var swipe: SwipeRefreshLayout
     private lateinit var recyclerview:RecyclerView
     private lateinit var adapter: AdaptadorImpresiones
     private lateinit var chooseMode: ImageButton
@@ -37,10 +38,10 @@ class ImpresionesMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_impresiones_main)
-        initRecyclerView(listaImpresiones)
+        initRecyclerView()
         backButton = findViewById(R.id.backButtonI)
         addButton = findViewById(R.id.anadir)
-        recharge = findViewById(R.id.reload)
+        swipe = findViewById(R.id.swiper)
         recyclerview = findViewById(R.id.lista)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = AdaptadorImpresiones(listaImpresiones)
@@ -50,13 +51,15 @@ class ImpresionesMain : AppCompatActivity() {
         }
 
         addButton.setOnClickListener{
-            val intent = Intent(this, EditarImpresionesMain::class.java)
+            val intent = Intent(this, AnadirImpresionesMain::class.java)
             startActivity(intent)
-            initRecyclerView(listaImpresiones)
+            initRecyclerView()
         }
 
-        recharge.setOnClickListener{
-            initRecyclerView(listaImpresiones)
+        swipe.setColorSchemeResources(R.color.buttons)
+        swipe.setOnRefreshListener {
+            initRecyclerView()
+            swipe.isRefreshing = false
         }
 
         searchBar = findViewById(R.id.searchView)
@@ -90,7 +93,7 @@ class ImpresionesMain : AppCompatActivity() {
         listaImpresiones.clear()
         super.onResume()
         println("si")
-        this.initRecyclerView(listaImpresiones)
+        this.initRecyclerView()
     }
 
     fun searchlist(text:String){
@@ -146,7 +149,7 @@ class ImpresionesMain : AppCompatActivity() {
         recyclerview.adapter = adapter
     }
 
-    private fun initRecyclerView(lista:ArrayList<Impresion>) {
+    private fun initRecyclerView() {
         listaImpresiones.clear()
         db.collection("Impresiones")
             .get()
@@ -160,7 +163,8 @@ class ImpresionesMain : AppCompatActivity() {
                         document.data["valor"].toString(),
                         document.data["foto"].toString(),
                         document.data["id"].toString(),
-                        document.data["date"].toString())
+                        document.data["date"].toString(),
+                        document.data["status"].toString())
                     listaImpresiones.add(archivo)
                 }
                 if(listaImpresiones.isEmpty()){
@@ -175,7 +179,7 @@ class ImpresionesMain : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
                 recyclerview.layoutManager = LinearLayoutManager(this)
-                var listaImpresionesNull= listOf(Impresion("No","Funciona","esto", "Aggggg","F","","Aggggg", "Ffffff"))
+                var listaImpresionesNull= listOf(Impresion("No","Funciona","esto", "Aggggg","F","","Aggggg", "Ffffff","aaa"))
                 recyclerview.adapter = AdaptadorImpresiones(listaImpresionesNull)
             }
 

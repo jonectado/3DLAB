@@ -7,4 +7,7 @@
     <color name="darker_text">#0A264C</color>
     <color name="black">#000000</color>
     <color name="text_bg">#66DADFED</color>
+    <color name="fallida">#C61818</color>
+    <color name="completada">#36B81D</color>
+    <color name="enProceso">#B8A817</color>
 </resources>

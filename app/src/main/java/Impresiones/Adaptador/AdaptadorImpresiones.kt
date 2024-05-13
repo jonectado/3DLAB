@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
 
-class AdaptadorImpresiones(var listaImpresiones:List<Impresion>) : RecyclerView.Adapter<ViewHolderImpresiones>() {
+class AdaptadorImpresiones(
+    var listaImpresiones:List<Impresion>) : RecyclerView.Adapter<ViewHolderImpresiones>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderImpresiones {
         val layoutInflater = LayoutInflater.from(parent.context)
         return ViewHolderImpresiones(layoutInflater.inflate(R.layout.impresiones, parent, false))
