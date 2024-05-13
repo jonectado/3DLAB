@@ -6,5 +6,9 @@ data class Impresion(
     val filamentoUsado: String,
     val gr_material: String,
     val valor: String,
-    val foto: String
+    val foto: String,
+    val id: String,
+    val date: String,
+    val status: String
+
 )

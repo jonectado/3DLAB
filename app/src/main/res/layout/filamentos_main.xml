@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Filamentos.Filamentos_main"
     android:background="@color/background"
-    >
+    tools:context="Filamentos.FilamentosMain">
 
     <ImageButton
         android:id="@+id/backButton"
@@ -28,28 +27,28 @@
     <View
         android:id="@+id/view"
         android:layout_width="0dp"
-        android:layout_marginHorizontal="25dp"
         android:layout_height="40dp"
+        android:layout_marginHorizontal="25dp"
         android:background="@drawable/linea_separadora"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
+
     <TextView
 
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Mis filamentos"
         android:fontFamily="@font/breeserif"
-        app:layout_constraintTop_toBottomOf="@+id/backButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.02"
+        android:text="Mis filamentos"
         android:textColor="@color/text_plain"
-        />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_constraintVertical_bias="0.02" />
 
     <ImageView
         android:id="@+id/logo"
@@ -70,9 +69,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.05">
+        app:layout_constraintVertical_bias="0.050000012">
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:text="Hola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/anadir"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/darker_text"
+        app:layout_constraintBottom_toBottomOf="@+id/lista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
