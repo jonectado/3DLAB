@@ -30,34 +30,7 @@ class LogInMain : AppCompatActivity() {
         restorePassword = findViewById(R.id.restorePassword)
 
         button3.setOnClickListener {
-            val email = editTextTextEmailAddress.text.toString()
-            val pass = editTextTextPassword.text.toString()
-
-            if (email.isNotEmpty() && pass.isNotEmpty()) {
-                firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener{
-                    if(it.isSuccessful){
-                        val intent1 = Intent(this, ImpresionesMain::class.java)
-                        startActivity(intent1)
-                        Toast.makeText(
-                            this,
-                            "Inicio de sesión exitoso",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }else{
-                        Toast.makeText(
-                            this,
-                            it.exception.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            } else {
-                Toast.makeText(
-                    this,
-                    "Rellene todos los campos para iniciar sesión",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            iniciarSesion()
         }
         button2 = findViewById(R.id.button2)
         button2.setOnClickListener{
@@ -67,6 +40,37 @@ class LogInMain : AppCompatActivity() {
         restorePassword.setOnClickListener {
             val intent3 = Intent(this, passwordreset::class.java)
             startActivity(intent3)
+        }
+    }
+
+    private fun iniciarSesion() {
+        val email = editTextTextEmailAddress.text.toString()
+        val pass = editTextTextPassword.text.toString()
+
+        if (email.isNotEmpty() && pass.isNotEmpty()) {
+            firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener{
+                if(it.isSuccessful){
+                    val intent1 = Intent(this, ImpresionesMain::class.java)
+                    startActivity(intent1)
+                    Toast.makeText(
+                        this,
+                        "Inicio de sesión exitoso",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+                    Toast.makeText(
+                        this,
+                        it.exception.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        } else {
+            Toast.makeText(
+                this,
+                "Rellene todos los campos para iniciar sesión",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

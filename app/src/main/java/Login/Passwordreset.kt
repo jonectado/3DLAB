@@ -20,33 +20,37 @@ class passwordreset : AppCompatActivity() {
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress)
 
         button2.setOnClickListener {
-            val email = editTextTextEmailAddress.text.toString()
-            if (email.isNotEmpty()){
-                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-                    .addOnCompleteListener{
+            restaurar()
+        }
+    }
+
+    private fun restaurar() {
+        val email = editTextTextEmailAddress.text.toString()
+        if (email.isNotEmpty()){
+            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener{
                         task ->
-                        if(task.isSuccessful){
-                            Toast.makeText(
-                                this,
-                                "Se ha enviado correo de recuperación",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            finish()
-                        }else{
-                            Toast.makeText(
-                                this,
-                                "No se ha podido enviar al correo",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
+                    if(task.isSuccessful){
+                        Toast.makeText(
+                            this,
+                            "Se ha enviado correo de recuperación",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        finish()
+                    }else{
+                        Toast.makeText(
+                            this,
+                            "No se ha podido enviar al correo",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-            }else{
-                Toast.makeText(
-                    this,
-                    "Por favor ingrese su correo",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+                }
+        }else{
+            Toast.makeText(
+                this,
+                "Por favor ingrese su correo",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

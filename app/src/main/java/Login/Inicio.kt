@@ -15,14 +15,18 @@ class Inicio : AppCompatActivity() {
         setContentView(R.layout.activity_inicio)
         button1 = findViewById(R.id.button1)
         button1.setOnClickListener{
-            val intent = Intent(this, LogInMain::class.java)
-            startActivity(intent)
-            finish()
-            Toast.makeText(
-                this,
-                "Bienvenido",
-                Toast.LENGTH_SHORT
-            ).show()
+            ingresar()
         }
+    }
+
+    private fun ingresar() {
+        val intent = Intent(this, LogInMain::class.java)
+        startActivity(intent)
+        finish()
+        Toast.makeText(
+            this,
+            "Bienvenido",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
