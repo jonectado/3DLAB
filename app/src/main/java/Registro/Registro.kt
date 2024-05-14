@@ -1,4 +1,4 @@
-package DashBoard
+package Registro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.widget.Toast
 import com.example.a3dlab.R
 import com.google.firebase.auth.FirebaseAuth
 
-<<<<<<< HEAD:app/src/main/java/Registro/Registro.kt
 class Registro : AppCompatActivity() {
     private lateinit var editTextTextEmailAddress: EditText
     private lateinit var editTextTextPassword: EditText
@@ -71,12 +70,5 @@ class Registro : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
-=======
-class layout_pagina_principal : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_pagina_principal)
->>>>>>> main:app/src/main/java/DashBoard/Layout_pagina_principal.kt
     }
 }

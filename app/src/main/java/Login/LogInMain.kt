@@ -1,7 +1,8 @@
 package Login
 
-import Impresiones.ImpresionesMain
+import Dashboard.dashboard_main
 import Registro.Registro
+import Impresiones.ImpresionesMain
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -50,13 +51,14 @@ class LogInMain : AppCompatActivity() {
         if (email.isNotEmpty() && pass.isNotEmpty()) {
             firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener{
                 if(it.isSuccessful){
-                    val intent1 = Intent(this, ImpresionesMain::class.java)
+                    val intent1 = Intent(this, dashboard_main::class.java)
                     startActivity(intent1)
                     Toast.makeText(
                         this,
                         "Inicio de sesión exitoso",
                         Toast.LENGTH_SHORT
                     ).show()
+                    finish()
                 }else{
                     Toast.makeText(
                         this,

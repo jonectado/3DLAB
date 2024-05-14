@@ -9,12 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.a3dlab.R
 import com.google.firebase.auth.FirebaseAuth
 import Login.passwordreset
+import android.widget.ImageButton
 
 
 class usuario : AppCompatActivity() {
     private lateinit var email:TextView
     private var userEmail:String = ""
-    private lateinit var backbutton: Button
+    private lateinit var backbutton: ImageButton
     private lateinit var button2: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

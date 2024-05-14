@@ -28,6 +28,7 @@ class Notificaciones_main : AppCompatActivity() {
         Backbutton.setOnClickListener {
             val intent = Intent(this, dashboard_main::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

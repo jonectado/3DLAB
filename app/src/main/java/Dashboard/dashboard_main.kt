@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.cardview.widget.CardView
 import com.example.a3dlab.R
+import usuario.usuario
 
 class dashboard_main : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class dashboard_main : AppCompatActivity() {
 
         Miusuario = findViewById<CardView>(R.id.Miusuario)
         Miusuario.setOnClickListener {
-            val intent = Intent(this, ImpresionesMain::class.java)
+            val intent = Intent(this, usuario::class.java)
             startActivity(intent)
         }
 
