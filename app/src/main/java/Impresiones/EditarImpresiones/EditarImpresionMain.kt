@@ -220,6 +220,13 @@ class EditarImpresionMain : AppCompatActivity() {
                                     ContentValues.TAG,
                                     "DocumentSnapshot added with ID: ${id}"
                                 )
+
+                                // aqui me falta una funcionalidad xd
+
+
+                                // Aqui va el codigo para notificaciones Y la variable que necesitas es Weight
+
+
                             }
                             .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
                                 Log.w(

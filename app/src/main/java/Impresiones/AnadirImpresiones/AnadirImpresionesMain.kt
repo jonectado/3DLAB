@@ -187,6 +187,8 @@ class AnadirImpresionesMain : AppCompatActivity() {
                                                 TAG,
                                                 "DocumentSnapshot added with ID: ${id}"
                                             )
+                                            // Aqui va el codigo para notificaciones Y la variable que necesitas es Weight
+
                                         }
                                         .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
                                             Log.w(

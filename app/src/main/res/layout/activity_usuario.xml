@@ -63,7 +63,7 @@
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view5"
-            app:layout_constraintVertical_bias="0.1" />
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
             android:id="@+id/textView4"
@@ -103,12 +103,14 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/view4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.1" />
+            app:layout_constraintVertical_bias="0.1"
+            />
 
         <View
             android:id="@+id/view4"
@@ -130,16 +132,5 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             app:layout_constraintVertical_bias="0.1" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeswipe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="33dp"
-            app:layout_constraintBottom_toTopOf="@+id/listView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView">
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
