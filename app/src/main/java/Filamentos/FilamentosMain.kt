@@ -3,9 +3,7 @@ package Filamentos
 import Filamentos.Adaptador.AdaptadorFilamentos
 import Filamentos.AnadirFilamentos.AnadirFilamentosMain
 import Filamentos.Clases.Filamento
-import Filamentos.EditarFilamentos.AnadirFilamentosMain
 import Impresiones.Adaptador.AdaptadorImpresiones
-import Impresiones.AnadirImpresiones.AnadirImpresionesMain
 import Impresiones.Clases.Impresion
 import android.content.ContentValues
 import android.content.Intent

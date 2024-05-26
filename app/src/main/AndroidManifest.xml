@@ -57,6 +57,10 @@
             android:exported="false" >
         </activity>
         <activity
+            android:name="Filamentos.EditarFilamentos.EditarFilamentoMain"
+            android:exported="false" >
+        </activity>
+        <activity
             android:name="Dashboard.dashboard_main"
             android:exported="false" >
         </activity>

@@ -1,11 +1,16 @@
 package Filamentos.Adaptador
 
 import Filamentos.Clases.Filamento
+import Filamentos.EditarFilamentos.EditarFilamentoMain
+import android.content.Intent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.a3dlab.R
@@ -18,6 +23,7 @@ class ViewHolderFilamentos(view: View) : RecyclerView.ViewHolder(view) {
     private val precio = view.findViewById<TextView>(R.id.precio)
     private val restante = view.findViewById<TextView>(R.id.restante)
     private val foto = view.findViewById<ImageView>(R.id.ImagenF)
+    private val edit= view.findViewById<ImageButton>(R.id.edit)
     private val estado = view.findViewById<Button>(R.id.estadoF)
     private val tipo = view.findViewById<TextView>(R.id.Tipo)
     private var seleccion = 0
@@ -70,6 +76,15 @@ class ViewHolderFilamentos(view: View) : RecyclerView.ViewHolder(view) {
                 }
             }
             builderSingle.show()
+        }
+        edit.setOnClickListener{
+            val intent = Intent(
+                edit.context,
+                EditarFilamentoMain::class.java
+            )
+            val str: String = filamento.id
+            intent.putExtra("id", str)
+            ContextCompat.startActivity(edit.context, intent, bundleOf())
         }
         Glide.with(color.context).load(filamento.foto).into(foto)
     }
