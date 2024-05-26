@@ -37,7 +37,7 @@
             android:exported="false" >
         </activity>
         <activity
-            android:name="Filamentos.AnadirFilamentos.AñadirFilamentosMain"
+            android:name="Filamentos.AnadirFilamentos.AnadirFilamentosMain"
             android:exported="false" >
         </activity>
         <activity
