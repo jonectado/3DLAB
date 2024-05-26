@@ -33,7 +33,7 @@ class ImpresionesMain : AppCompatActivity() {
     private lateinit var adapter: AdaptadorImpresiones
     private lateinit var chooseMode: ImageButton
     private var seleccion: Int = 0
-    private var mode: String = ""
+    private var mode: String = "Nombre"
     private var lista_: Array<String> =arrayOf("Nombre", "Fecha (mm dd, yyyy)", "Peso", "Precio", "Filamento Usado")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,6 @@ class ImpresionesMain : AppCompatActivity() {
         recyclerview = findViewById(R.id.lista)
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = AdaptadorImpresiones(listaImpresiones)
-        mode = "Nombre"
         backButton.setOnClickListener{
             finish()
         }

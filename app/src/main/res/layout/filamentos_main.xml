@@ -4,13 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="Impresiones.ImpresionesMain"
     android:background="@color/background"
-    tools:context="Filamentos.FilamentosMain">
+    >
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="buscar..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0">
+
+    </SearchView>
 
     <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/button4"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@drawable/baseline_sort_24"
+        app:layout_constraintBottom_toTopOf="@+id/swiper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="1">
+
+    </ImageButton>
+    <ImageButton
+        android:id="@+id/backButtonI"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintWidth_percent="0.08"
         android:background="@drawable/backarrow"
         android:clickable="true"
         android:focusable="true"
@@ -24,31 +54,22 @@
         app:layout_constraintVertical_bias="0.04"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="25dp"
-        android:background="@drawable/linea_separadora"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
     <TextView
-
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/breeserif"
         android:text="Mis filamentos"
         android:textColor="@color/text_plain"
-        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.06"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toEndOf="@+id/backButtonI"
+        app:layout_constraintTop_toTopOf="@+id/backButtonI"
+        app:layout_constraintVertical_bias="0.019"
+        app:layout_constraintWidth_percent="0.54" />
 
     <ImageView
         android:id="@+id/logo"
@@ -58,42 +79,45 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/title"
-        app:layout_constraintTop_toTopOf="@+id/backButton"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toTopOf="@+id/backButtonI"
+        app:layout_constraintVertical_bias="0"
+        android:importantForAccessibility="no" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista"
-        android:layout_width="0dp"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiper"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.050000012">
+        app:layout_constraintTop_toBottomOf="@+id/searchView">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:layout_constraintVertical_bias="0.2"
+            >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:text="Hola"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent" />
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/anadir"
         android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/darker_text"
-        app:layout_constraintBottom_toBottomOf="@+id/lista"
+        app:backgroundTint="@color/buttons"
+        app:layout_constraintBottom_toBottomOf="@+id/swiper"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9">
+        app:layout_constraintVertical_bias="0.9"
+        android:contentDescription="Añadir">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

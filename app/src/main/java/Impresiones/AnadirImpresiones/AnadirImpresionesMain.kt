@@ -175,7 +175,6 @@ class AnadirImpresionesMain : AppCompatActivity() {
                 .addOnSuccessListener { task ->
                     task.metadata!!.reference!!.downloadUrl
                         .addOnSuccessListener {
-                            Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
                             photoID = "$it"
                             val print = Impresion(name, description, filament, weight, cost, photoID, id, SimpleDateFormat.getDateInstance().format(
                                     Calendar.getInstance().time),status)
