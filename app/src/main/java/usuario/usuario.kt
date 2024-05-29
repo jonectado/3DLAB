@@ -1,6 +1,8 @@
 package usuario
 
+import Login.Inicio
 import Login.passwordreset
+import Notificaciones.Notificaciones_main
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,13 +13,11 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.a3dlab.R
 import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
+import com.google.firebase.auth.FirebaseAuth
 
 
 class usuario : AppCompatActivity() {
@@ -25,6 +25,8 @@ class usuario : AppCompatActivity() {
     private var userEmail:String = ""
     private lateinit var backbutton: ImageButton
     private lateinit var button2: Button
+    private lateinit var cerrarSesion: Button
+    private lateinit var delete: Button
     private lateinit var lista: ListView
     private var lista_usuarios:ArrayList<String> = arrayListOf<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +34,8 @@ class usuario : AppCompatActivity() {
         setContentView(R.layout.activity_usuario)
         backbutton = findViewById(R.id.backButton)
         button2 = findViewById(R.id.button2)
+        delete = findViewById(R.id.delete)
+        cerrarSesion = findViewById(R.id.cerrarSesion)
         lista = findViewById(R.id.listView)
         updateUsers()
         val user = FirebaseAuth.getInstance().currentUser
@@ -57,6 +61,13 @@ class usuario : AppCompatActivity() {
         email = findViewById(R.id.textView4)
         email.text = userEmail
 
+        cerrarSesion.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, Inicio::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         backbutton.setOnClickListener {
             finish()
         }
@@ -65,8 +76,6 @@ class usuario : AppCompatActivity() {
             val intent = Intent(this, passwordreset::class.java)
             startActivity(intent)
         }
-
-        var itemsAdapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, lista_usuarios)
     }
 
     fun updateUsers(){
@@ -79,7 +88,6 @@ class usuario : AppCompatActivity() {
                 }
                 val itemsAdapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, lista_usuarios)
                 lista.adapter = itemsAdapter
-                Toast.makeText(this, "finalizó", Toast.LENGTH_LONG).show()
             }
 
     }

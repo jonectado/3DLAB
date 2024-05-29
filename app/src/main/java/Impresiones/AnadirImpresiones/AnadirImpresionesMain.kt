@@ -2,6 +2,7 @@ package Impresiones.AnadirImpresiones
 
 import Impresiones.Clases.Impresion
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -171,7 +172,7 @@ class AnadirImpresionesMain : AppCompatActivity() {
         weight = data.text.toString()
         //Verifica el precio
         if (weight.isNotEmpty()) {
-            cost = (weight.toInt() * (lista_precios[seleccion] / 1000)).toString()
+            cost = (weight.toInt() * lista_precios[seleccion]).toString()
         }
         //Crea el documento
         if (name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty() || uri == null || status.isEmpty()) {
@@ -224,7 +225,15 @@ class AnadirImpresionesMain : AppCompatActivity() {
                         }
                     //Solo para verlo en la app que si sirve
                     Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
-
+                    db.collection("Filamentos")
+                        .document("${seleccion+1}")
+                        .update("restante","${lista_pesos[seleccion] - weight.toInt()}")
+                        .addOnSuccessListener {
+                            Log.w(
+                                ContentValues.TAG,
+                                "FUNCIONA PERO NO HACE NADA"
+                            )
+                        }
                     finish()
                 }
         }
