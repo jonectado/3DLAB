@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
@@ -30,10 +31,13 @@ class Notificaciones_main : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    
+
     fun initRecyclerView(){
         val recyclerView = findViewById<RecyclerView>(R.id.lista)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adaptador_notificacion(listanotificaciones.noti_list)
     }
 }
+
+
+

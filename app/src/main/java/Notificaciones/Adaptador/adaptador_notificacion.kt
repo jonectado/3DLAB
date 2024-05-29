@@ -21,7 +21,5 @@ class adaptador_notificacion (private val noti_list:List<Notificacion>) : Recycl
     override fun getItemCount(): Int {
         return noti_list.size
     }
-
-
-
 }
+
