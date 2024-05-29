@@ -3,6 +3,7 @@ package Impresiones.AnadirImpresiones
 import Impresiones.Clases.Impresion
 import Notificaciones.Clases.Notificacion
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -27,29 +28,30 @@ import com.google.firebase.storage.FirebaseStorage
 
 class AnadirImpresionesMain : AppCompatActivity() {
 
+    private lateinit var lista_pesos: Array<Int>
     private lateinit var backButton: ImageButton
     private lateinit var sendButton: Button
     private lateinit var chooseFiament: Button
     private lateinit var chooseStatus: Button
-    private lateinit var data:EditText
-    private lateinit var  image: ImageView
+    private lateinit var data: EditText
+    private lateinit var image: ImageView
     private lateinit var chooseImage: Button
-    private  lateinit var id_impresiones: Array<Int>
-    private lateinit var lista_precios:Array<Int>
+    private lateinit var id_impresiones: Array<Int>
+    private lateinit var lista_precios: Array<Int>
     private lateinit var lista_filamentos: Array<String>
     private var seleccion: Int = 0
     private var seleccion2: Int = 0
     private val db: FirebaseFirestore = Firebase.firestore
     private var photodb: FirebaseStorage = FirebaseStorage.getInstance()
-    private var name:String = ""
-    private var description:String = ""
-    private var filament:String = ""
-    private var status:String = ""
-    private var weight:String = ""
-    private var cost:String = ""
-    private var photoID:String = ""
-    private var id:String = ""
-    private var uri:Uri? =null
+    private var name: String = ""
+    private var description: String = ""
+    private var filament: String = ""
+    private var status: String = ""
+    private var weight: String = ""
+    private var cost: String = ""
+    private var photoID: String = ""
+    private var id: String = ""
+    private var uri: Uri? = null
     private val galleryImage: ActivityResultLauncher<String> =
         registerForActivityResult(
             ActivityResultContracts.GetContent(),
@@ -58,6 +60,7 @@ class AnadirImpresionesMain : AppCompatActivity() {
                 uri = it
             }
         )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.anadir_impresiones_main)
@@ -65,31 +68,31 @@ class AnadirImpresionesMain : AppCompatActivity() {
         initFilaments()
         initId()
 
-        backButton= findViewById<ImageButton>(R.id.backButton)
-        sendButton= findViewById<Button>(R.id.button)
-        chooseFiament= findViewById<Button>(R.id.selectFilament)
-        chooseStatus= findViewById<Button>(R.id.button6)
-        image= findViewById<ImageView>(R.id.imageViewI)
-        chooseImage= findViewById<Button>(R.id.chooseImage)
+        backButton = findViewById<ImageButton>(R.id.backButton)
+        sendButton = findViewById<Button>(R.id.button)
+        chooseFiament = findViewById<Button>(R.id.selectFilament)
+        chooseStatus = findViewById<Button>(R.id.button6)
+        image = findViewById<ImageView>(R.id.imageViewI)
+        chooseImage = findViewById<Button>(R.id.chooseImage)
 
-        sendButton.setOnClickListener{
+        sendButton.setOnClickListener {
             Toast.makeText(this, "Cargando...", Toast.LENGTH_SHORT).show()
             sendItem()
         }
 
-        backButton.setOnClickListener{
+        backButton.setOnClickListener {
             finish()
         }
 
-        chooseFiament.setOnClickListener{
+        chooseFiament.setOnClickListener {
             showFilaments()
         }
 
-        chooseImage.setOnClickListener{
+        chooseImage.setOnClickListener {
             galleryImage.launch("image/*")
         }
 
-        chooseStatus.setOnClickListener{
+        chooseStatus.setOnClickListener {
             showStatus()
         }
 
@@ -103,11 +106,11 @@ class AnadirImpresionesMain : AppCompatActivity() {
                 for (document in result) {
                     id_impresiones = id_impresiones.plus(document.id.toInt())
                 }
-                id = if(id_impresiones.isEmpty()){
+                id = if (id_impresiones.isEmpty()) {
                     "1"
-                }else{
+                } else {
                     println("Okey")
-                    (id_impresiones.max()+1).toString()
+                    (id_impresiones.max() + 1).toString()
                 }
             }
             .addOnFailureListener { exception ->
@@ -119,8 +122,8 @@ class AnadirImpresionesMain : AppCompatActivity() {
     private fun showFilaments() {
         val builderSingle = AlertDialog.Builder(this)
         builderSingle.setTitle("Eliga el filamento usado")
-        builderSingle.setPositiveButton(getString(android.R.string.ok)){ dialog, _ -> dialog.dismiss()}
-        builderSingle.setSingleChoiceItems(lista_filamentos, seleccion) {dialog, whitch ->
+        builderSingle.setPositiveButton(getString(android.R.string.ok)) { dialog, _ -> dialog.dismiss() }
+        builderSingle.setSingleChoiceItems(lista_filamentos, seleccion) { dialog, whitch ->
             seleccion = whitch
             chooseFiament.text = lista_filamentos[seleccion]
             filament = lista_filamentos[seleccion]
@@ -132,19 +135,24 @@ class AnadirImpresionesMain : AppCompatActivity() {
     private fun showStatus() {
         val builderSingle = AlertDialog.Builder(this)
         builderSingle.setTitle("Eliga el estado de su impresion")
-        builderSingle.setPositiveButton(getString(android.R.string.ok)){ dialog, _ -> dialog.dismiss()}
-        builderSingle.setSingleChoiceItems(arrayOf("Completada","En proceso", "Fallida"), seleccion2) { dialog, whitch ->
+        builderSingle.setPositiveButton(getString(android.R.string.ok)) { dialog, _ -> dialog.dismiss() }
+        builderSingle.setSingleChoiceItems(
+            arrayOf("Completada", "En proceso", "Fallida"),
+            seleccion2
+        ) { dialog, whitch ->
             seleccion2 = whitch
-            chooseStatus.text = arrayOf("Completada","En proceso", "Fallida")[seleccion2]
-            status = arrayOf("Completada","En proceso", "Fallida")[seleccion2]
-            when(seleccion2){
-                0->{
+            chooseStatus.text = arrayOf("Completada", "En proceso", "Fallida")[seleccion2]
+            status = arrayOf("Completada", "En proceso", "Fallida")[seleccion2]
+            when (seleccion2) {
+                0 -> {
                     chooseStatus.background = resources.getDrawable(R.drawable.boton_completada)
                 }
-                1->{
+
+                1 -> {
                     chooseStatus.background = resources.getDrawable(R.drawable.boton_en_proceso)
                 }
-                2->{
+
+                2 -> {
                     chooseStatus.background = resources.getDrawable(R.drawable.boton_fallida)
                 }
             }
@@ -164,45 +172,70 @@ class AnadirImpresionesMain : AppCompatActivity() {
         data = findViewById<EditText>(R.id.peso)
         weight = data.text.toString()
         //Verifica el precio
-        if(weight.isNotEmpty()){
-            cost = (weight.toInt()*(lista_precios[seleccion]/1000)).toString()
+        if (weight.isNotEmpty()) {
+            cost = (weight.toInt() * lista_precios[seleccion]).toString()
         }
         //Crea el documento
-        if(name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty()|| uri==null|| status.isEmpty()){
-            Toast.makeText(this,"Rellene todos los campos para continuar",Toast.LENGTH_SHORT).show()
-        }else {
+        if (name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty() || uri == null || status.isEmpty()) {
+            Toast.makeText(this, "Rellene todos los campos para continuar", Toast.LENGTH_SHORT)
+                .show()
+        } else if (lista_pesos[seleccion] < weight.toInt()) {
+            Toast.makeText(
+                this,
+                "No tiene suficiente filamento de este tipo para la impresión.",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
             photodb.getReference("Impresiones").child(name)
                 .putFile(uri!!)
                 .addOnSuccessListener { task ->
                     task.metadata!!.reference!!.downloadUrl
                         .addOnSuccessListener {
-                            Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
                             photoID = "$it"
-                            val print = Impresion(name, description, filament, weight, cost, photoID, id, SimpleDateFormat.getDateInstance().format(
-                                    Calendar.getInstance().time),status)
-                                    db.collection("Impresiones") //A que coleccion va a ir
-                                        .document(id)
-                                        .set(print)//envia el objeto que creamos arriba
-                                        .addOnSuccessListener { documentReference -> //Si es exitoso, muestra en la pestaña Logcat
-                                            Log.d(
-                                                TAG,
-                                                "DocumentSnapshot added with ID: ${id}"
-                                            )
+                            val print = Impresion(
+                                name,
+                                description,
+                                filament,
+                                weight,
+                                cost,
+                                photoID,
+                                id,
+                                SimpleDateFormat.getDateInstance().format(
+                                    Calendar.getInstance().time
+                                ),
+                                status
+                            )
+                            db.collection("Impresiones") //A que coleccion va a ir
+                                .document(id)
+                                .set(print)//envia el objeto que creamos arriba
+                                .addOnSuccessListener { documentReference -> //Si es exitoso, muestra en la pestaña Logcat
+                                    Log.d(
+                                        TAG,
+                                        "DocumentSnapshot added with ID: ${id}"
+                                    )
+                                    // Aqui va el codigo para notificaciones Y la variable que necesitas es Weight
 
-                                            noti()
-
-                                        }
-                                        .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
-                                            Log.w(
-                                                TAG,
-                                                "Error adding document",
-                                                e
-                                            )
-                                        }
                                 }
-                            //Solo para verlo en la app que si sirve
-                            Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
-                            finish()
+                                .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
+                                    Log.w(
+                                        TAG,
+                                        "Error adding document",
+                                        e
+                                    )
+                                }
+                        }
+                    //Solo para verlo en la app que si sirve
+                    Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
+                    db.collection("Filamentos")
+                        .document("${seleccion+1}")
+                        .update("restante","${lista_pesos[seleccion] - weight.toInt()}")
+                        .addOnSuccessListener {
+                            Log.w(
+                                ContentValues.TAG,
+                                "FUNCIONA PERO NO HACE NADA"
+                            )
+                        }
+                    finish()
                 }
         }
     }
@@ -243,13 +276,19 @@ class AnadirImpresionesMain : AppCompatActivity() {
     private fun initFilaments() {
         lista_filamentos = arrayOf()
         lista_precios = arrayOf()
+        lista_pesos = arrayOf()
         db.collection("Filamentos")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    var archivo: String = document.id +". "+ document.data["marca"].toString()+" "+document.data["color"].toString()
-                    lista_filamentos= lista_filamentos.plus(archivo)
-                    lista_precios = lista_precios.plus(document.data["costo"].toString().toInt())
+                    if (document.data["estado"] != "No disponible") {
+                        val archivo: String =
+                            document.id + ". " + document.data["marca"].toString() + " " + document.data["color"].toString()
+                        lista_filamentos = lista_filamentos.plus(archivo)
+                        lista_precios =
+                            lista_precios.plus(document.data["costoXgr"].toString().toInt())
+                        lista_pesos = lista_pesos.plus(document.data["restante"].toString().toInt())
+                    }
                 }
             }
             .addOnFailureListener { exception ->

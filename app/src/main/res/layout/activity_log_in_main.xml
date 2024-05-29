@@ -69,7 +69,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.03"
         android:background="@drawable/textframe"
-        android:hint="    usuario"
+        android:padding="10dp"
+        android:hint="usuario"
         />
     <!--
         cambiar opacidad
@@ -106,7 +107,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.03"
-        android:hint="  contraseña"
+        android:padding="10dp"
+        android:hint="contraseña"
         />
     <Button
         android:id="@+id/button2"
@@ -143,6 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:text="Recuperar contraseña"
+
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="200dp"
-    android:layout_height="200dp"
-    >
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/ImagenF"
@@ -15,116 +14,189 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/black"
-        app:layout_constraintVertical_bias="0.05"/>
+        app:layout_constraintVertical_bias="0.05"
+        tools:background="@color/black" />
 
     <TextView
         android:id="@+id/ColorTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Color: "
+        android:fontFamily="@font/breeserif"
+        android:text="Color:   "
+        android:textColor="@color/text_plain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImagenF"
-        app:layout_constraintVertical_bias="0.02"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        app:layout_constraintVertical_bias="0.02" />
 
     <TextView
         android:id="@+id/Color"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        android:fontFamily="@font/breeserif"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textColor="@color/text_plain"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toEndOf="@+id/ColorTag"
         app:layout_constraintTop_toTopOf="@+id/ColorTag"
-        android:text=""
-        tools:text="Negro"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        tools:text="Negro" />
+
+    <Button
+        android:id="@+id/estadoF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boton_general"
+        android:text="Bien"
+        android:textColor="@color/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TipoTag">
+
+    </Button>
+
+    <ImageButton
+        android:id="@+id/edit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/baseline_edit_note_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/Tipo"
+        app:layout_constraintVertical_bias="1.0"
+        android:importantForAccessibility="no" />
 
     <TextView
         android:id="@+id/MarcaTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="marca: "
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/breeserif"
+        android:text="marca:   "
+        android:textColor="@color/text_plain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ColorTag"
-        app:layout_constraintVertical_bias="0.01"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/ColorTag"
+        app:layout_constraintTop_toBottomOf="@+id/Color"
+        app:layout_constraintVertical_bias="0.01" />
 
     <TextView
         android:id="@+id/Marca"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        android:fontFamily="@font/breeserif"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textColor="@color/text_plain"
+        app:layout_constraintEnd_toEndOf="@+id/Color"
         app:layout_constraintStart_toEndOf="@+id/MarcaTag"
         app:layout_constraintTop_toTopOf="@+id/MarcaTag"
-        android:text=""
-        tools:text="BambooLab"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        tools:text="BambooLab" />
+
     <TextView
         android:id="@+id/precioTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Precio: "
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/breeserif"
+        android:text="Precio:   "
+        android:textColor="@color/text_plain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MarcaTag"
-        app:layout_constraintVertical_bias="0.01"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/MarcaTag"
+        app:layout_constraintTop_toBottomOf="@+id/Marca"
+        app:layout_constraintVertical_bias="0.01" />
 
     <TextView
         android:id="@+id/precio"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        android:fontFamily="@font/breeserif"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textColor="@color/text_plain"
+        app:layout_constraintEnd_toEndOf="@+id/Color"
         app:layout_constraintStart_toEndOf="@+id/precioTag"
         app:layout_constraintTop_toTopOf="@+id/precioTag"
-        android:text=""
-        tools:text="$ 70000.0"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        tools:text="$ 70000.0" />
+
     <TextView
         android:id="@+id/RestanteTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Restante: "
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/breeserif"
+        android:text="Restante:   "
+        android:textColor="@color/text_plain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/precioTag"
-        app:layout_constraintVertical_bias="0.01"
-        android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/precioTag"
+        app:layout_constraintTop_toBottomOf="@+id/precio"
+        app:layout_constraintVertical_bias="0.01" />
 
     <TextView
         android:id="@+id/restante"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        android:fontFamily="@font/breeserif"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textColor="@color/text_plain"
+        app:layout_constraintEnd_toEndOf="@+id/Color"
         app:layout_constraintStart_toEndOf="@+id/RestanteTag"
         app:layout_constraintTop_toTopOf="@+id/RestanteTag"
-        android:text=""
-        tools:text="700.0 gr"
+        tools:text="700.0 gr" />
+
+    <TextView
+        android:id="@+id/TipoTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/breeserif"
+        android:text="Tipo:   "
         android:textColor="@color/text_plain"
-        android:fontFamily="@font/breeserif"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/RestanteTag"
+        app:layout_constraintTop_toBottomOf="@+id/restante"
+        app:layout_constraintVertical_bias="0.01" />
 
+    <TextView
+        android:id="@+id/Tipo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/breeserif"
+        android:text=""
+        android:textAlignment="viewEnd"
+        android:textColor="@color/text_plain"
+        app:layout_constraintEnd_toEndOf="@+id/Color"
+        app:layout_constraintStart_toEndOf="@+id/TipoTag"
+        app:layout_constraintTop_toTopOf="@+id/TipoTag"
+        tools:text="PLA" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="184dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="130dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

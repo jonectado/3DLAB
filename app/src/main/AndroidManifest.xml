@@ -40,16 +40,15 @@
             android:exported="false" >
         </activity>
         <activity
-            android:name="Filamentos.EditarFilamentos.AñadirFilamentosMain"
-            android:exported="false">
+            android:name="Filamentos.AnadirFilamentos.AnadirFilamentosMain"
+            android:exported="false" >
         </activity>
+            
         <activity
             android:name="Impresiones.ImpresionesMain"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+            android:exported="false">
         </activity>
+            
         <activity
             android:name="Login.passwordreset"
             android:exported="false" />
@@ -63,7 +62,14 @@
             android:name="Notificaciones.Notificaciones_main"
 
             android:exported="false" >
-
+        </activity>
+        <activity
+            android:name="Filamentos.EditarFilamentos.EditarFilamentoMain"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name="Dashboard.dashboard_main"
+            android:exported="false" >
         </activity>
     </application>
 

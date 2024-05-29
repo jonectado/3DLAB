@@ -1,0 +1,292 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context="Impresiones.EditarImpresiones.EditarImpresionMain"
+
+        >
+
+        <TextView
+            android:id="@+id/CTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Color"
+            android:textColor="@color/text_plain"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewF"
+            app:layout_constraintVertical_bias="0.04" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backarrow"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/backarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.04"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Añadir Filamento"
+            android:textColor="@color/text_plain"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backButton"
+            app:layout_constraintVertical_bias="0" />
+
+        <ImageView
+            android:id="@+id/imageViewF"
+            android:layout_width="134dp"
+            android:layout_height="120dp"
+            android:backgroundTint="#92DADFED"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintVertical_bias="0.01"
+            app:srcCompat="@drawable/filament" />
+
+        <TextView
+            android:id="@+id/MTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Marca"
+            android:textColor="@color/text_plain"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/C"
+            app:layout_constraintVertical_bias="0.04" />
+
+        <EditText
+            android:id="@+id/descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/textframe"
+            android:fontFamily="@font/breeserif"
+            android:hint="¿De donde compró el filamento?"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/text_plain"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/C"
+            app:layout_constraintTop_toBottomOf="@+id/MTag"
+            app:layout_constraintVertical_bias="0.03" />
+
+        <TextView
+            android:id="@+id/PTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Precio"
+            android:textColor="@color/text_plain"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/CTag"
+            app:layout_constraintTop_toBottomOf="@+id/descripcion"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <TextView
+            android:id="@+id/FIniTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Filamento Inicial (en gr)"
+            android:textColor="@color/text_plain"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/MTag"
+            app:layout_constraintTop_toBottomOf="@+id/selectFilament"
+            app:layout_constraintVertical_bias="0.05" />
+
+        <EditText
+            android:id="@+id/FIni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/textframe"
+            android:ems="10"
+            android:fontFamily="@font/breeserif"
+            android:hint="Cuanto filamento venía cuando lo compró?"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="@color/text_plain"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/PTag"
+            app:layout_constraintTop_toBottomOf="@+id/FIniTag"
+            app:layout_constraintVertical_bias="0.06" />
+
+        <TextView
+            android:id="@+id/ResTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Restante (en gr)"
+            android:textColor="@color/text_plain"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/PTag"
+            app:layout_constraintTop_toBottomOf="@+id/FIni"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <EditText
+            android:id="@+id/Res"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/textframe"
+            android:ems="10"
+            android:fontFamily="@font/breeserif"
+            android:hint="Cuanto filamento le queda?"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="@color/text_plain"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/PTag"
+            app:layout_constraintTop_toBottomOf="@+id/ResTag"
+            app:layout_constraintVertical_bias="0.06" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Tipo"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_general"
+            android:fontFamily="@font/breeserif"
+            android:text="Confirmar"
+            android:textColor="@color/background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view2"
+            app:layout_constraintVertical_bias="1" />
+
+        <EditText
+            android:id="@+id/C"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/textframe"
+            android:ems="10"
+            android:fontFamily="@font/breeserif"
+            android:hint="Ej: verde esmeralda"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/text_plain"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CTag"
+            app:layout_constraintVertical_bias="0.03" />
+
+        <EditText
+            android:id="@+id/selectFilament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:inputType="number"
+            android:fontFamily="@font/breeserif"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/textframe"
+            android:hint="Cuanto pagó en un inicio por el filamento"
+            android:textSize="15sp"
+            android:scrollbarStyle="insideInset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PTag"
+            app:layout_constraintVertical_bias="0.04">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/chooseImageF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_general"
+            android:text="Elegir una imagen"
+            android:textColor="@color/background"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewF"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+        <TextView
+            android:id="@+id/TipoTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/breeserif"
+            android:text="Tipo de material"
+            android:textColor="@color/text_plain"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/PTag"
+            app:layout_constraintTop_toBottomOf="@+id/Res"
+            app:layout_constraintVertical_bias="0.1" />
+        <Button
+            android:id="@+id/Tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/textframe"
+            android:ems="10"
+            android:fontFamily="@font/breeserif"
+            android:hint="Seleccione el tipo de material"
+            android:padding="10dp"
+            android:textColor="@color/text_plain"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/PTag"
+            app:layout_constraintTop_toBottomOf="@+id/TipoTag"
+            app:layout_constraintVertical_bias="0.06" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

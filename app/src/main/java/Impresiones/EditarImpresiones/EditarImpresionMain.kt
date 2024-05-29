@@ -3,6 +3,7 @@ package Impresiones.EditarImpresiones
 import Impresiones.Clases.Impresion
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.ContentValues.TAG
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -28,10 +29,12 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import kotlin.math.log
 
 @Suppress("DEPRECATION")
 class EditarImpresionMain : AppCompatActivity() {
 
+    private lateinit var lista_pesos: Array<Int>
     private lateinit var backButton: ImageButton
     private lateinit var sendButton: Button
     private lateinit var chooseFiament: Button
@@ -54,6 +57,7 @@ class EditarImpresionMain : AppCompatActivity() {
     private var photoID: String = ""
     private var id: String = ""
     private var uri: Uri? = null
+    private var pesoOriginal: String = ""
     private val galleryImage: ActivityResultLauncher<String> =
         registerForActivityResult(
             ActivityResultContracts.GetContent(),
@@ -68,7 +72,6 @@ class EditarImpresionMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_impresion_main)
 
-        initFilaments()
 
         val bundle = intent.extras
         val idDoc = bundle!!.getString("id")
@@ -87,6 +90,7 @@ class EditarImpresionMain : AppCompatActivity() {
             description = it.data!!["descripcion"].toString()
             findViewById<EditText>(R.id.descripcion).setText(description)
             filament = it.data!!["filamentoUsado"].toString()
+            initFilaments()
             chooseFiament.text = filament
             status = it.data!!["status"].toString()
             chooseStatus.text = status
@@ -105,9 +109,12 @@ class EditarImpresionMain : AppCompatActivity() {
             }
             weight = it.data!!["gr_material"].toString()
             findViewById<EditText>(R.id.peso).setText(weight)
+            pesoOriginal = weight
             photoID = it.data!!["foto"].toString()
             Glide.with(this).load(photoID).into(image)
         }
+
+
 
         sendButton.setOnClickListener {
             Toast.makeText(this, "Cargando...", Toast.LENGTH_SHORT).show()
@@ -187,13 +194,19 @@ class EditarImpresionMain : AppCompatActivity() {
         weight = data.text.toString()
         //Verifica el precio
         if (weight.isNotEmpty()) {
-            cost = (weight.toInt() * (lista_precios[seleccion] / 1000)).toString()
+            cost = (weight.toInt() * lista_precios[seleccion] ).toString()
         }
         //Crea el documento
         if (name.isEmpty() || description.isEmpty() || weight.isEmpty() || filament.isEmpty() || (uri == null && photoID == "") || status.isEmpty()) {
             Toast.makeText(this, "Rellene todos los campos para continuar", Toast.LENGTH_SHORT)
                 .show()
-        } else {
+        } else if (lista_pesos[seleccion] < weight.toInt()) {
+            Toast.makeText(
+                this,
+                "No tiene suficiente filamento de este tipo para la impresión.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }else {
             if (uri == null) {
                 val print = Impresion(
                     name,
@@ -220,6 +233,9 @@ class EditarImpresionMain : AppCompatActivity() {
                                     ContentValues.TAG,
                                     "DocumentSnapshot added with ID: ${id}"
                                 )
+                                // Aqui va el codigo para notificaciones Y la variable que necesitas es Weight
+
+
                             }
                             .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
                                 Log.w(
@@ -230,6 +246,16 @@ class EditarImpresionMain : AppCompatActivity() {
                             }
                     }
                 Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
+                if(weight!=pesoOriginal){
+                    db.collection("Filamentos")
+                        .document("${seleccion+1}")
+                        .update("restante","${lista_pesos[seleccion]+(pesoOriginal.toInt() - weight.toInt())}")
+                        .addOnSuccessListener {
+                            Log.w(ContentValues.TAG,
+                                "FUNCIONA PERO NO HACE NADA"
+                            )
+                        }
+                }
                 finish()
             } else {
                 photodb.getReference("Impresiones").child(name)
@@ -278,6 +304,16 @@ class EditarImpresionMain : AppCompatActivity() {
                         Toast.makeText(this, "Añadido correctamente", Toast.LENGTH_SHORT).show()
                         finish()
                     }
+                if(weight!=pesoOriginal){
+                    db.collection("Filamentos")
+                        .document("${seleccion+1}")
+                        .update("restante","${lista_pesos[seleccion]+(pesoOriginal.toInt() - weight.toInt())}")
+                        .addOnSuccessListener {
+                            Log.w(ContentValues.TAG,
+                                "FUNCIONA PERO NO HACE NADA"
+                            )
+                        }
+                }
             }
 
         }
@@ -286,18 +322,26 @@ class EditarImpresionMain : AppCompatActivity() {
     private fun initFilaments() {
         lista_filamentos = arrayOf()
         lista_precios = arrayOf()
+        lista_pesos = arrayOf()
         db.collection("Filamentos")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    var archivo: String =
-                        document.id + ". " + document.data["marca"].toString() + " " + document.data["color"].toString()
-                    lista_filamentos = lista_filamentos.plus(archivo)
-                    lista_precios = lista_precios.plus(document.data["costo"].toString().toInt())
+                    if (document.data["estado"] != "No disponible") {
+                        val archivo: String =
+                            document.id + ". " + document.data["marca"].toString() + " " + document.data["color"].toString()
+                        lista_filamentos = lista_filamentos.plus(archivo)
+                        lista_precios =
+                            lista_precios.plus(document.data["costoXgr"].toString().toInt())
+                        lista_pesos = lista_pesos.plus(document.data["restante"].toString().toInt())
+                        if(filament == archivo){
+                            seleccion = document.id.toInt()-1
+                        }
+                    }
                 }
             }
             .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
+                Log.w(TAG, "Error getting documents.", exception)
             }
     }
 }
