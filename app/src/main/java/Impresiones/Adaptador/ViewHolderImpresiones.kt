@@ -17,7 +17,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 
 
-class ViewHolderImpresiones(view: View):RecyclerView.ViewHolder(view) {
+class ViewHolderImpresiones(view: View) : RecyclerView.ViewHolder(view) {
     private val nombre: TextView = view.findViewById<TextView>(R.id.nombre)
     private val descripcion: TextView = view.findViewById<TextView>(R.id.descripcion)
     private val precio: TextView = view.findViewById<TextView>(R.id.precio)
@@ -26,8 +26,9 @@ class ViewHolderImpresiones(view: View):RecyclerView.ViewHolder(view) {
     private val foto: ImageView = view.findViewById<ImageView>(R.id.ImagenI)
     private val status: Button = view.findViewById<Button>(R.id.status)
     private val editar: Button = view.findViewById<Button>(R.id.edit)
+
     @SuppressLint("SetTextI18n")
-    fun render(impresion: Impresion){
+    fun render(impresion: Impresion) {
         nombre.text = impresion.titulo
         descripcion.text = impresion.descripcion
         precio.text = "$ ${impresion.valor}"
@@ -35,14 +36,16 @@ class ViewHolderImpresiones(view: View):RecyclerView.ViewHolder(view) {
         marca.text = impresion.filamentoUsado
         status.text = impresion.status
         Glide.with(nombre.context).load(impresion.foto).into(foto)
-        when(impresion.status){
-            "Completada"->{
+        when (impresion.status) {
+            "Completada" -> {
                 status.setBackgroundResource(R.drawable.boton_completada)
             }
-            "En proceso"-> {
+
+            "En proceso" -> {
                 status.setBackgroundResource(R.drawable.boton_en_proceso)
             }
-            "Fallida"->{
+
+            "Fallida" -> {
                 status.setBackgroundResource(R.drawable.boton_fallida)
             }
         }
@@ -55,26 +58,34 @@ class ViewHolderImpresiones(view: View):RecyclerView.ViewHolder(view) {
             intent.putExtra("id", str)
             startActivity(editar.context, intent, bundleOf())
         }
-        status.setOnClickListener{
+        status.setOnClickListener {
             val builderSingle = AlertDialog.Builder(status.context)
             builderSingle.setTitle("Eliga el estado de su impresion")
-            builderSingle.setPositiveButton("ok"){ dialog, _ -> dialog.dismiss()}
-            var seleccion2=0
-            builderSingle.setSingleChoiceItems(arrayOf("Completada","En proceso", "Fallida"), seleccion2) { dialog, whitch ->
+            builderSingle.setPositiveButton("ok") { dialog, _ -> dialog.dismiss() }
+            var seleccion2 = 0
+            builderSingle.setSingleChoiceItems(
+                arrayOf("Completada", "En proceso", "Fallida"),
+                seleccion2
+            ) { dialog, whitch ->
                 seleccion2 = whitch
-                status.text = arrayOf("Completada","En proceso", "Fallida")[seleccion2]
-                when(seleccion2){
-                    0->{
+                status.text = arrayOf("Completada", "En proceso", "Fallida")[seleccion2]
+                when (seleccion2) {
+                    0 -> {
                         status.setBackgroundResource(R.drawable.boton_completada)
-                        Firebase.firestore.collection("Impresiones").document(impresion.id).update("status","Completada")
+                        Firebase.firestore.collection("Impresiones").document(impresion.id)
+                            .update("status", "Completada")
                     }
-                    1-> {
+
+                    1 -> {
                         status.setBackgroundResource(R.drawable.boton_en_proceso)
-                        Firebase.firestore.collection("Impresiones").document(impresion.id).update("status","En proceso")
+                        Firebase.firestore.collection("Impresiones").document(impresion.id)
+                            .update("status", "En proceso")
                     }
-                    2->{
+
+                    2 -> {
                         status.setBackgroundResource(R.drawable.boton_fallida)
-                        Firebase.firestore.collection("Impresiones").document(impresion.id).update("status","Fallida")
+                        Firebase.firestore.collection("Impresiones").document(impresion.id)
+                            .update("status", "Fallida")
                     }
                 }
             }
