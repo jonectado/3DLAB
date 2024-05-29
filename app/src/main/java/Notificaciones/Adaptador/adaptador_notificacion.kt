@@ -1,7 +1,8 @@
 package Notificaciones.Adaptador
 
-import Notificaciones.Clases.Notificacion
+import Impresiones.Clases.Impresion
 import android.view.LayoutInflater
+import Notificaciones.Clases.Notificacion
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
