@@ -1,6 +1,7 @@
 package Impresiones.AnadirImpresiones
 
 import Impresiones.Clases.Impresion
+import Notificaciones.Clases.Notificacion
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.ContentValues.TAG
@@ -237,6 +238,39 @@ class AnadirImpresionesMain : AppCompatActivity() {
                     finish()
                 }
         }
+    }
+
+    private fun noti() {
+        db.collection("Impresiones")
+            .get()
+            .addOnSuccessListener { result ->
+                val count = result.size()
+                var notificacion_mostrar = ""
+                if(count > 8){
+                    notificacion_mostrar = "ejes"
+                }
+                if(count > 10){
+                    notificacion_mostrar = "cama"
+                }
+
+                saveNotification(notificacion_mostrar, "0")
+
+                db.collection("Notificaciones")
+                    .document("num_impresiones")
+                    .set(mapOf("count" to count))
+            }
+    }
+
+    private fun saveNotification(notificacion_text: String, mostrar: String) {
+        val notificacion = Notificacion( notificacion_text, mostrar)
+        db.collection("Notifications")
+            .add(notificacion)
+            .addOnSuccessListener {
+                Log.d(TAG, "Notification saved")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error saving notification", e)
+            }
     }
 
     private fun initFilaments() {

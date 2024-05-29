@@ -1,7 +1,8 @@
 package Notificaciones.Adaptador
 
-import Notificaciones.Clases.Notificacion
+import Impresiones.Clases.Impresion
 import android.view.LayoutInflater
+import Notificaciones.Clases.Notificacion
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
@@ -28,6 +29,5 @@ class adaptador_notificacion(private val noti_list: List<Notificacion>) :
     override fun getItemCount(): Int {
         return noti_list.size
     }
-
-
 }
+
