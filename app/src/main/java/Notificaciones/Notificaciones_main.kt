@@ -29,10 +29,12 @@ class Notificaciones_main : AppCompatActivity() {
         Backbutton.setOnClickListener {
             val intent = Intent(this, dashboard_main::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
-    fun initRecyclerView(){
+
+    fun initRecyclerView() {
         val recyclerView = findViewById<RecyclerView>(R.id.lista)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adaptador_notificacion(listanotificaciones.noti_list)

@@ -66,7 +66,7 @@ class EditarImpresionMain : AppCompatActivity() {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.anadir_impresiones_main)
+        setContentView(R.layout.activity_editar_impresion_main)
 
         initFilaments()
 
