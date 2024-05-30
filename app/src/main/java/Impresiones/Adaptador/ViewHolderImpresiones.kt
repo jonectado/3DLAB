@@ -54,7 +54,7 @@ class ViewHolderImpresiones(view: View) : RecyclerView.ViewHolder(view) {
                 editar.context,
                 EditarImpresionMain::class.java
             )
-            val str: String = impresion.id
+            val str: String = impresion.id.toString()
             intent.putExtra("id", str)
             startActivity(editar.context, intent, bundleOf())
         }
@@ -72,19 +72,19 @@ class ViewHolderImpresiones(view: View) : RecyclerView.ViewHolder(view) {
                 when (seleccion2) {
                     0 -> {
                         status.setBackgroundResource(R.drawable.boton_completada)
-                        Firebase.firestore.collection("Impresiones").document(impresion.id)
+                        Firebase.firestore.collection("Impresiones").document(impresion.id.toString())
                             .update("status", "Completada")
                     }
 
                     1 -> {
                         status.setBackgroundResource(R.drawable.boton_en_proceso)
-                        Firebase.firestore.collection("Impresiones").document(impresion.id)
+                        Firebase.firestore.collection("Impresiones").document(impresion.id.toString())
                             .update("status", "En proceso")
                     }
 
                     2 -> {
                         status.setBackgroundResource(R.drawable.boton_fallida)
-                        Firebase.firestore.collection("Impresiones").document(impresion.id)
+                        Firebase.firestore.collection("Impresiones").document(impresion.id.toString())
                             .update("status", "Fallida")
                     }
                 }

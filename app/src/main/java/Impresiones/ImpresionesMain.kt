@@ -161,16 +161,15 @@ class ImpresionesMain : AppCompatActivity() {
                         document.data["gr_material"].toString(),
                         document.data["valor"].toString(),
                         document.data["foto"].toString(),
-                        document.data["id"].toString(),
+                        document.data["id"].toString().toInt(),
                         document.data["date"].toString(),
                         document.data["status"].toString())
                     listaImpresiones.add(archivo)
+                    listaImpresiones.sortByDescending{ it.id}
                 }
                 if(listaImpresiones.isEmpty()){
                     Toast.makeText(this, "Añade tu primera impresión!", Toast.LENGTH_SHORT).show()
                 }else{
-                    listaImpresiones.sortBy { "id" }
-                    listaImpresiones.reverse()
                     recyclerview.layoutManager = LinearLayoutManager(this)
                     recyclerview.adapter = AdaptadorImpresiones(listaImpresiones)
                 }
@@ -178,7 +177,7 @@ class ImpresionesMain : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
                 recyclerview.layoutManager = LinearLayoutManager(this)
-                var listaImpresionesNull= listOf(Impresion("No","Funciona","esto", "Aggggg","F","","Aggggg", "Ffffff","aaa"))
+                var listaImpresionesNull= listOf(Impresion("No","Funciona","esto", "Aggggg","F","",1, "Ffffff","aaa"))
                 recyclerview.adapter = AdaptadorImpresiones(listaImpresionesNull)
             }
 

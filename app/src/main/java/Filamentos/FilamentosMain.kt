@@ -165,12 +165,11 @@ class FilamentosMain : AppCompatActivity() {
                         document.data["estado"].toString(),
                         document.data["id"].toString())
                     listaFilamentos.add(archivo)
+                    listaFilamentos.sortByDescending { it.id.toInt() }
                 }
                 if(listaFilamentos.isEmpty()){
                     Toast.makeText(this, "Añade tu primer filamento!", Toast.LENGTH_SHORT).show()
                 }else{
-                    listaFilamentos.sortBy { "id" }
-                    listaFilamentos.reverse()
                     recyclerview.layoutManager = GridLayoutManager(this,2)
                     recyclerview.adapter = AdaptadorFilamentos(listaFilamentos)
                 }
@@ -178,7 +177,7 @@ class FilamentosMain : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents.", exception)
                 recyclerview.layoutManager = LinearLayoutManager(this)
-                var listaImpresionesNull= listOf(Impresion("No","Funciona","esto", "Aggggg","F","","Aggggg", "Ffffff","aaa"))
+                var listaImpresionesNull= listOf(Impresion("No","Funciona","esto", "Aggggg","F","",1, "Ffffff","aaa"))
                 recyclerview.adapter = AdaptadorImpresiones(listaImpresionesNull)
             }
 

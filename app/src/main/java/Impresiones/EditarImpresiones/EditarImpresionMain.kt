@@ -215,7 +215,7 @@ class EditarImpresionMain : AppCompatActivity() {
                     weight,
                     cost,
                     photoID,
-                    id,
+                    id.toInt(),
                     SimpleDateFormat.getDateInstance().format(
                         Calendar.getInstance().time
                     ),
@@ -271,7 +271,7 @@ class EditarImpresionMain : AppCompatActivity() {
                                     weight,
                                     cost,
                                     photoID,
-                                    id,
+                                    id.toInt(),
                                     SimpleDateFormat.getDateInstance().format(
                                         Calendar.getInstance().time
                                     ),

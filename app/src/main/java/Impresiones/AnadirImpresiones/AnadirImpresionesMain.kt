@@ -201,7 +201,7 @@ class AnadirImpresionesMain : AppCompatActivity() {
                                 weight,
                                 cost,
                                 photoID,
-                                id,
+                                id.toInt(),
                                 SimpleDateFormat.getDateInstance().format(
                                     Calendar.getInstance().time
                                 ),
@@ -215,25 +215,19 @@ class AnadirImpresionesMain : AppCompatActivity() {
                                         TAG,
                                         "DocumentSnapshot added with ID: ${id}"
                                     )
-                                    // Aqui va el codigo para notificaciones Y la variable que necesitas es Weight
+                                    // Update de las variables de Notificaciones
 
                                     db.collection("Notificaciones")
-                                        .document("cama")
+                                        .document("Usos")
                                         .get()
                                         .addOnSuccessListener { doc ->
                                             db.collection("Notificaciones")
-                                                .document("cama")
-                                                .set(mapOf("lavar_cama" to "${doc.data!!["lavar_cama"].toString().toInt()+1}"))
-                                        }
-                                    db.collection("Notificaciones")
-                                        .document("ejes")
-                                        .get()
-                                        .addOnSuccessListener { documento ->
+                                                .document("Usos")
+                                                .update("usos","${doc.data!!["usos"].toString().toInt()+1}")
                                             db.collection("Notificaciones")
-                                                .document("ejes")
-                                                .set(mapOf("lavar_ejes" to "${documento.data!!["lavar_ejes"].toString().toInt()+1}"))
+                                                .document("Usos")
+                                                .update("usosBig","${doc.data!!["usosBig"].toString().toInt()+1}")
                                         }
-
 
                                 }
                                 .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
@@ -256,8 +250,8 @@ class AnadirImpresionesMain : AppCompatActivity() {
                             )
                             if(lista_pesos[seleccion] - weight.toInt() < 50){
                                 db.collection("Notificaciones")
-                                    .document()
-                                    .set(mapOf("PesoFilamento" to "${seleccion+1}"))
+                                    .document("Filamentos")
+                                    .update("${seleccion+1}", "${seleccion+1}")
                             }
                         }
                     finish()

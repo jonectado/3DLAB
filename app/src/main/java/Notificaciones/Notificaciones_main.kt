@@ -25,9 +25,7 @@ class Notificaciones_main : AppCompatActivity() {
 
     private val db = Firebase.firestore
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: adaptador_notificacion
     private val noti_list: ArrayList<Notificacion> = ArrayList<Notificacion>()
-    private lateinit var Hecho_button: Button
     private lateinit var Backbutton: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +34,7 @@ class Notificaciones_main : AppCompatActivity() {
         recyclerView.adapter = adaptador_notificacion(noti_list)
 
         initRecyclerView()
-        initNotificacion()
+
 
         Backbutton = findViewById(R.id.backButtonN)
 
@@ -51,46 +49,35 @@ class Notificaciones_main : AppCompatActivity() {
     fun initRecyclerView() {
         noti_list.clear()
         db.collection("Notificaciones")
+            .document("Filamentos")
             .get()
             .addOnSuccessListener { p ->
-                noti_list.clear()
-                for(document in p){
-                    var archivo: Notificacion = Notificacion(
-                        document.data!!["notificacion_text"].toString(),
-                        document.data!!["PesoFilamento"].toString(),
-                        document.data!!["cama"].toString(),
-                        document.data!!["ejes"].toString()
-                    )
-                    noti_list.add(archivo)
-                }
-            }
-        if (noti_list.isEmpty()) {
-            Toast.makeText(this, "Sin Notificaciones", Toast.LENGTH_SHORT).show()
-        } else {
-            noti_list.sortBy { "id" }
-            noti_list.reverse()
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.adapter = adaptador_notificacion(noti_list)
-        }
-    }
-
-    fun initNotificacion() {
-
-        db.collection("Notificacion")
-            .get()
-            .addOnSuccessListener { resp ->
-                noti_list.clear()
-                for (document in resp) {
-                    if (document.data["Fil_restante"].toString().toInt() < 50) {
-                        val archivo: String =
-                            document.data["Fil_restante"].toString()
-                        noti_list.plus(archivo)
+                for (i in p.data!!.toList()){
+                    println("FUNCIONA FILAMENTOS: ${i.second.toString()}")
+                    if(i.second.toString().isNotEmpty()){
+                        noti_list.add(Notificacion(i.second.toString(),"",""))
                     }
                 }
+                db.collection("Notificaciones")
+                    .document("Usos")
+                    .get()
+                    .addOnSuccessListener { q ->
+                        if(q.data!!["usos"].toString().toInt()>7){
+                            noti_list.add(Notificacion("",q.data!!["usos"].toString(),""))
+                        }
+                        if(q.data!!["usosBig"].toString().toInt()>15){
+                            noti_list.add(Notificacion("","",q.data!!["usosBig"].toString()))
+                        }
+                        if (noti_list.isEmpty()) {
+                            Toast.makeText(this, "Sin Notificaciones", Toast.LENGTH_SHORT).show()
+                        } else {
+                            recyclerView.layoutManager = LinearLayoutManager(this)
+                            recyclerView.adapter = adaptador_notificacion(noti_list)
+                        }
+                    }
             }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents.", exception)
-            }
+
+
     }
 }
 

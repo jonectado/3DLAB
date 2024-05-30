@@ -1,6 +1,5 @@
 package Notificaciones.Adaptador
 
-import Impresiones.Clases.Impresion
 import android.view.LayoutInflater
 import Notificaciones.Clases.Notificacion
 import android.view.ViewGroup

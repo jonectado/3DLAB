@@ -7,7 +7,7 @@ data class Impresion(
     val gr_material: String,
     val valor: String,
     val foto: String,
-    val id: String,
+    val id: Int,
     val date: String,
     val status: String
 
