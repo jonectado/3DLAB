@@ -3,7 +3,9 @@ package Notificaciones.Clases
 import android.widget.LinearLayout
 
 data class Notificacion(
-    val notificacion_text: String,
-    val mostrar: String
+    var notificacion_text: String,
+    var PesoFilamento: String,
+    var cama:String,
+    var ejes:String
     )
 

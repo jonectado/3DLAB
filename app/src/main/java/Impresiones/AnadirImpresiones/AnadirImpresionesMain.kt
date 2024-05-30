@@ -186,6 +186,8 @@ class AnadirImpresionesMain : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         } else {
+            var count_ejes = 0
+            var count_cama = 0
             photodb.getReference("Impresiones").child(name)
                 .putFile(uri!!)
                 .addOnSuccessListener { task ->
@@ -215,6 +217,24 @@ class AnadirImpresionesMain : AppCompatActivity() {
                                     )
                                     // Aqui va el codigo para notificaciones Y la variable que necesitas es Weight
 
+                                    db.collection("Notificaciones")
+                                        .document("cama")
+                                        .get()
+                                        .addOnSuccessListener { doc ->
+                                            db.collection("Notificaciones")
+                                                .document("cama")
+                                                .set(mapOf("lavar_cama" to "${doc.data!!["lavar_cama"].toString().toInt()+1}"))
+                                        }
+                                    db.collection("Notificaciones")
+                                        .document("ejes")
+                                        .get()
+                                        .addOnSuccessListener { documento ->
+                                            db.collection("Notificaciones")
+                                                .document("ejes")
+                                                .set(mapOf("lavar_ejes" to "${documento.data!!["lavar_ejes"].toString().toInt()+1}"))
+                                        }
+
+
                                 }
                                 .addOnFailureListener { e -> //Si no es exitoso, muestra en la pestaña LogCat
                                     Log.w(
@@ -234,43 +254,15 @@ class AnadirImpresionesMain : AppCompatActivity() {
                                 ContentValues.TAG,
                                 "FUNCIONA PERO NO HACE NADA"
                             )
+                            if(lista_pesos[seleccion] - weight.toInt() < 50){
+                                db.collection("Notificaciones")
+                                    .document()
+                                    .set(mapOf("PesoFilamento" to "${seleccion+1}"))
+                            }
                         }
                     finish()
                 }
         }
-    }
-
-    private fun noti() {
-        db.collection("Impresiones")
-            .get()
-            .addOnSuccessListener { result ->
-                val count = result.size()
-                var notificacion_mostrar = ""
-                if(count > 8){
-                    notificacion_mostrar = "ejes"
-                }
-                if(count > 10){
-                    notificacion_mostrar = "cama"
-                }
-
-                saveNotification(notificacion_mostrar, "0")
-
-                db.collection("Notificaciones")
-                    .document("num_impresiones")
-                    .set(mapOf("count" to count))
-            }
-    }
-
-    private fun saveNotification(notificacion_text: String, mostrar: String) {
-        val notificacion = Notificacion( notificacion_text, mostrar)
-        db.collection("Notifications")
-            .add(notificacion)
-            .addOnSuccessListener {
-                Log.d(TAG, "Notification saved")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error saving notification", e)
-            }
     }
 
     private fun initFilaments() {

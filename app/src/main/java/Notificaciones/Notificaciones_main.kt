@@ -1,32 +1,42 @@
 package Notificaciones
 
 import Dashboard.dashboard_main
+import Impresiones.Adaptador.AdaptadorImpresiones
 import Impresiones.Clases.Impresion
 import Notificaciones.Adaptador.adaptador_notificacion
 import Notificaciones.Clases.Notificacion
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a3dlab.R
+import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 
 class Notificaciones_main : AppCompatActivity() {
 
-    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private lateinit var notificationsAdapter: ArrayAdapter<String>
+    private val db = Firebase.firestore
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: adaptador_notificacion
     private val noti_list: ArrayList<Notificacion> = ArrayList<Notificacion>()
-    private val notificacionId = mutableListOf<String>()
-
+    private lateinit var Hecho_button: Button
     private lateinit var Backbutton: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_notificaciones)
+        recyclerView = findViewById<RecyclerView>(R.id.lista)
+        recyclerView.adapter = adaptador_notificacion(noti_list)
+
         initRecyclerView()
+        initNotificacion()
 
         Backbutton = findViewById(R.id.backButtonN)
 
@@ -36,49 +46,50 @@ class Notificaciones_main : AppCompatActivity() {
             finish()
         }
 
-        cargar_notificacion()
     }
-
 
     fun initRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.lista)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adaptador_notificacion(noti_list)
-    }
-
-    private fun cargar_notificacion() {
+        noti_list.clear()
         db.collection("Notificaciones")
             .get()
-            .addOnSuccessListener { result ->
+            .addOnSuccessListener { p ->
                 noti_list.clear()
-                notificationsAdapter.notifyDataSetChanged()
+                for(document in p){
+                    var archivo: Notificacion = Notificacion(
+                        document.data!!["notificacion_text"].toString(),
+                        document.data!!["PesoFilamento"].toString(),
+                        document.data!!["cama"].toString(),
+                        document.data!!["ejes"].toString()
+                    )
+                    noti_list.add(archivo)
+                }
             }
+        if (noti_list.isEmpty()) {
+            Toast.makeText(this, "Sin Notificaciones", Toast.LENGTH_SHORT).show()
+        } else {
+            noti_list.sortBy { "id" }
+            noti_list.reverse()
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            recyclerView.adapter = adaptador_notificacion(noti_list)
+        }
     }
 
-    private fun deleteNotification(position: Int) {
-        val notificationId = notificacionId[position]
-        db.collection("Notificaciones").document(notificationId)
-            .delete()
-            .addOnSuccessListener {
-                Toast.makeText(this, "Notificación eliminada", Toast.LENGTH_SHORT).show()
-                notificacionId.removeAt(position)
-                notificacionId.removeAt(position)
-                notificationsAdapter.notifyDataSetChanged()
-                updateCounter()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Error eliminando notificación", Toast.LENGTH_SHORT).show()
-            }
-    }
+    fun initNotificacion() {
 
-    private fun updateCounter() {
-        db.collection("Impresiones")
+        db.collection("Notificacion")
             .get()
-            .addOnSuccessListener { result ->
-                val count = result.size()
-                db.collection("ConteoImpresiones")
-                    .document("conteo")
-                    .set(mapOf("count" to count))
+            .addOnSuccessListener { resp ->
+                noti_list.clear()
+                for (document in resp) {
+                    if (document.data["Fil_restante"].toString().toInt() < 50) {
+                        val archivo: String =
+                            document.data["Fil_restante"].toString()
+                        noti_list.plus(archivo)
+                    }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents.", exception)
             }
     }
 }
